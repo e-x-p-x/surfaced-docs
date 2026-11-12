@@ -1,8 +1,60 @@
 ---
 title: "Prompts"
-description: "The questions Surfaced asks on your behalf."
+description: "Choosing the questions Surfaced tracks — the single highest-leverage decision in the product."
 ---
 
-Prompts are the questions put to the AI assistants on every tracking run. They are the single biggest lever on whether your results are useful: a prompt nobody would type produces an answer nobody will read.
+Prompts are the questions Surfaced asks the AI engines on your behalf. Every number you will ever read is an aggregate over them, so the prompt set is not configuration — it is the measurement instrument.
 
-{/* EXPX-2591 writes the rest of this page. */}
+Add and edit them on [Insights → Prompts](/insights/prompts).
+
+## What makes a good prompt
+
+**A question a buyer would actually type.** Not a keyword. "best AI visibility tracker for agencies" is a prompt; "AI visibility" is not, and an assistant asked the latter will write an encyclopedia entry nobody is in.
+
+**A question with a decision behind it.** The questions worth tracking are the ones where an assistant's answer changes what someone buys: comparisons, "best X for Y", "how do I choose", "is X worth it", "alternatives to Y".
+
+**A question you could lose.** If you are the only possible answer, tracking it tells you nothing. The useful prompts are the contested ones.
+
+**Unbranded, mostly.** A question containing your name will return your name. See below.
+
+## Branded and unbranded
+
+A **branded** prompt names you: "is Acme any good?". An **unbranded** prompt does not: "best tool for X".
+
+They answer different questions. Unbranded prompts tell you whether you are discovered. Branded prompts tell you how you are described once someone already knows you — useful, and a different thing.
+
+Keep both, but never read them blended. Surfaced defaults to unbranded for this reason, and the gap between the two is routinely enormous: the same workspace can be near 80% branded and under 1% unbranded. [More](/metrics/periods-and-filters).
+
+## Stage, intent and tags
+
+Each prompt carries a funnel stage and a decision intent, and any tags you give it. These are not decoration — they are how you slice results later. Tagging by product line or by buyer type turns one visibility number into the five numbers that are actually actionable.
+
+Decide a tagging scheme before you add thirty prompts. Retrofitting tags is dull work.
+
+## Languages and markets
+
+A prompt is tracked per language and per market, and each combination is a separate row with its own numbers — and its own response cost. See [Markets and languages](/set-up/markets-and-languages) before you multiply.
+
+## How many
+
+There is no limit on how many prompts you may save. What your plan meters is **tracked responses** — one prompt, asked of one model, in one language, from one market, once — so the real constraint is prompts multiplied by languages, markets and models. The toolbar on [Prompts](/insights/prompts) shows that arithmetic against what is left this month.
+
+So the question is not "how many can I have" but "which ones are worth running every day". For most businesses that is a few dozen.
+
+Resist completeness. Prompts covering a category you do not serve lower your [brand visibility](/metrics/brand-visibility) without telling you anything you can act on, and they consume the budget that would let you watch a real question in three more markets.
+
+Start with what your sales team gets asked, and add a prompt each time a real buyer asks something you were not tracking.
+
+## Tags are topics
+
+The labels you put on a prompt are the same thing the product elsewhere calls topics. Some are inferred for you from the wording — comparison, features, pricing, use cases, alternatives, reviews, technical, general — and you can set your own on top.
+
+Tag edits apply to the whole group, including any inactive siblings.
+
+## Editing and retiring
+
+Editing a prompt inside a group updates it in place; editing a standalone prompt resets its analysis, and the toast says so. Either way, past answers stay attached to what produced them.
+
+**Untracking** is the safe way to stop a question running: the row and its history are kept, and an "Untracked prompts" section offers to track it again.
+
+**Deleting** is permanent and takes every answer with it. Prefer untracking unless you genuinely want the history gone.

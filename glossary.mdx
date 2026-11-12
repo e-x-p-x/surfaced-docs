@@ -1,8 +1,70 @@
 ---
 title: "Glossary"
-description: "The words Surfaced uses, defined once."
+description: "The terms Surfaced uses, defined once."
 ---
 
-Short definitions of the terms that appear throughout the app and the rest of this help centre. Each metric also has its own page under [Metrics](/metrics/overview) with a formula and a worked example.
+## Collection
 
-{/* EXPX-2591 writes the rest of this page. */}
+**Prompt** — a question Surfaced sends to the AI engines on your behalf. Tracked per language and per market, so one question can be several rows.
+
+**Response** (or answer) — one reply from one engine to one prompt at one moment. The unit everything is counted over.
+
+**Tracking run** — one scheduled pass that asks every tracked prompt of every tracked platform.
+
+**Observation** — an internal name for a stored response. You will see it in counts such as "sampled observations".
+
+**Citation** — an external link an engine included as a source in an answer. Counted once per answer per URL.
+
+**Platform** / **engine** — an AI assistant Surfaced asks, such as ChatGPT, Perplexity or Google's AI answers.
+
+## Measurement
+
+**Brand visibility** — the share of answers that named or linked you. [Full definition](/metrics/brand-visibility).
+
+**Citation rate** — among answers that cited any source, the share citing your domain. [Full definition](/metrics/citation-rate).
+
+**Citation share** — among all answers, the share that cited anything at all. A property of the platforms, not of you.
+
+**Share of voice** — your mentions as a proportion of all brand mentions in the comparison set. [Full definition](/metrics/share-of-voice).
+
+**Rival share** — share of voice measured against your pinned competitors only.
+
+**Average position** — your average rank in answers that ranked options. Lower is better. [Full definition](/metrics/average-position).
+
+**Sentiment** — how favourably the mentioning answers describe you, 0–100. [Full definition](/metrics/sentiment).
+
+**Branded / unbranded prompt** — whether the question contains your brand name. They measure different things and are reported separately. [Why it matters](/metrics/periods-and-filters).
+
+## Findings and work
+
+**Gap** — something the answers get wrong, leave out, or credit to a competitor. [Gap trends](/insights/gap-trends).
+
+**Locked gap** — a gap found only on platforms you do not track. Shown as a teaser and excluded from every count.
+
+**Severity** — critical, high, medium or low.
+
+**Status** — new, reviewed, actioned or dismissed. The last two are terminal and together are called **addressed**.
+
+**Action** — an item in the single work queue on [Actions](/improve/actions), with an owner and a status.
+
+**Audit score** — how ready your website is to be read and cited, 0–100. [Full definition](/metrics/audit-score).
+
+## Content
+
+**Brief** — the instruction for a piece of content before it is written. [Briefs](/content/briefs).
+
+**Article** — a piece of content in your library, at whatever stage. [Articles](/content/articles).
+
+**Checker** — an automated quality gate run on a draft before it can be published.
+
+## Structure
+
+**Organization** — the billing entity. One organization can hold several workspaces.
+
+**Workspace** — one brand being tracked, with its own prompts, competitors, members and settings. The unit of separation.
+
+**Member** — a person with a role in a workspace. The same person can belong to several.
+
+**Role** — what a member may do: owner, manager, editor, reviewer or viewer. [Members and roles](/account/members-and-roles).
+
+**Market** — the country a prompt is asked from. **Language** — the language it is asked in. They vary independently. [Markets and languages](/set-up/markets-and-languages).

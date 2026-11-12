@@ -1,0 +1,56 @@
+---
+title: "Audit score"
+description: "The 0–100 grade for how ready your website is to be read and cited by AI assistants."
+---
+
+## What it means
+
+The audit score measures your **website**, not the answers. It asks whether assistants can reach your pages, understand what each one is about, and find them worth quoting.
+
+It is the only score in Surfaced you can move without waiting for a tracking run, which is why it is usually the first thing to fix.
+
+## How it is calculated
+
+Every check returns one of three outcomes, worth a fixed number of points:
+
+| Outcome | Points |
+| --- | --- |
+| Pass | 100 |
+| Needs work | 50 |
+| Critical | 0 |
+
+Checks are grouped into categories, each category is averaged, and the categories are combined with fixed weights. The heaviest are the ones that decide whether your content can be used at all: whether pages are indexable, whether your titles and headings label them, and whether AI crawlers are allowed in. Lighter weights go to images, language declarations and outbound citations.
+
+The weighted total is then banded into a letter:
+
+| Grade | Score |
+| --- | --- |
+| A | 90–100 |
+| B | 75–89 |
+| C | 60–74 |
+| D | 45–59 |
+| F | below 45 |
+
+## Worked example
+
+A site is audited and scores 77 on Foundation, 63 on On-Page and 58 on Content. Combined with their weights this gives **69**, which bands to a **C**.
+
+The [public demo](https://www.getsurfaced.ai/demo/improve/opportunities/website?embed=1) shows exactly that: 69/100, grade C, with all three sub-scores marked "Needs attention".
+
+## Where to find it
+
+The score card at the top of [Audit report](/insights/audit-report), with its three sub-scores and the issue tables beneath.
+
+## Three things that surprise people
+
+**The colour is not keyed to the number.** A sub-score is coloured by whether it contains a critical failure, not by how high it is. A 68 that hides one critical check is shown in red on purpose, because an amber "68, fine" is exactly the reading that leaves a site unreadable to assistants for another month.
+
+**The score only covers the pages that were scanned.** The audit reads your homepage and your priority pages, not your whole site. It is a sample, and a good score on five pages is not a clean bill of health for five hundred.
+
+**The score can move when your site has not changed.** Adding a new category of checks re-weights the total, so a release that teaches the audit something new will shift every score slightly. That is deliberate — the alternative is never improving the measure — but it means a step change on a day you shipped nothing is worth checking against the [changelog](/changelog) before investigating your site.
+
+## What it is not
+
+**Not an SEO score.** There is overlap, but the checks are chosen for whether a language model can use the page, which is not the same question as whether a search engine will rank it. "Link authority" here means your internal linking; no backlink data is involved.
+
+**Not live.** The audit reruns on an explicit re-check — with a few minutes' cooldown — or on the nightly scrape. The number you are looking at is from the last audit, and the header says when that was.

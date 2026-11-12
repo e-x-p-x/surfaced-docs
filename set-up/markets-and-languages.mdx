@@ -1,8 +1,62 @@
 ---
 title: "Markets and languages"
-description: "Tracking the same brand in more than one place."
+description: "Why the language a question is asked in and the country it is asked from are two separate settings, and how to choose both."
 ---
 
-An assistant answers the same question differently in different countries and languages. Markets and languages decide which versions of the question Surfaced asks.
+Every prompt variant carries two things: the **language** it is written in, and the **country it is asked from**. They are independent, and picking them well is the difference between a result you can act on and an average of several different markets.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## They are genuinely independent
+
+English is asked from the United States, the United Kingdom, Ireland, Canada, the Netherlands and almost everywhere else. German is asked from Germany, Austria and Switzerland. A Dutch multinational's buyers often research in English.
+
+So the picker is two columns, and any language combines with any country. The only rule is that you cannot add the same pair twice; adding a duplicate shows a warning on the pair rather than silently creating a second row.
+
+Nothing is ever removed from either list because of what you picked in the other.
+
+## Why the country matters even in the same language
+
+AI assistants ground their answers differently depending on where the question comes from. The same English question asked from the US and from Germany can return different companies, different sources and different orderings — local suppliers, regional publications, country-specific pricing.
+
+If you sell in several countries and track only one, your visibility figure is that country's, whatever your revenue split says.
+
+## Two different settings, both called markets
+
+**Per-prompt country and language**, on [Prompts](/insights/prompts), is what gets asked where. This is the one that produces your numbers.
+
+**Target markets**, in workspace settings, is a content setting: where you sell, used to shape generated content and the prompts Surfaced suggests. It also seeds the defaults for new prompts. Changing it needs the owner or manager role, because of that knock-on effect.
+
+They look similar and are not interchangeable. One decides what is measured; the other decides how things are written.
+
+## "Global" exists in one of them and not the other
+
+The per-prompt country picker offers no worldwide option, deliberately: no provider can ask a question from "everywhere". A prompt is always asked from somewhere, and a figure labelled Global would be an average over an unstated set of countries.
+
+Target markets does offer Global, because for content it means something real — write for an international audience rather than a specific country.
+
+So if you want a global picture of your visibility, track the markets you actually sell in and read the markets table on [Analytics](/insights/analytics), which gives you the split instead of hiding it.
+
+## When a platform cannot answer from your country
+
+Not every platform can be queried from every country. Where a combination is not available, Surfaced asks from the nearest regional substitute and labels the result **"Routed via &lt;country&gt;"** rather than dropping the data or pretending it came from where you asked.
+
+Treat those rows as indicative for that market. They are a neighbour's answer, not yours.
+
+## The cost side
+
+Each language-and-country pair is a separate row, asked separately, on every tracked model. The arithmetic multiplies fast:
+
+```
+responses = prompts × languages × markets × models × runs
+```
+
+30 prompts in 6 languages across 5 markets on 12 models is 10,800 responses per run. Your plan is metered in responses, and [Tracking defaults](/set-up/tracking-defaults) shows the forecast against your limit before you commit to it.
+
+## How to choose
+
+**Start with where you actually sell.** Two markets you earn money in beat eight you might enter.
+
+**Add a language only where buyers research in it.** Many European B2B buyers research in English and buy in their own language. Tracking a language your buyers do not research in buys you rows, not insight.
+
+**Keep each combination long enough to trend.** A pair added and removed within a month leaves a gap in every comparison that includes it.
+
+**Expand on evidence.** When the markets table shows one country behaving unlike the others, that is the one worth deepening — more prompts, more languages — rather than adding a country nobody has asked about.

@@ -1,0 +1,52 @@
+---
+title: "Share of voice"
+description: "Your share of all brand mentions in the answers, measured against the competitors you track."
+---
+
+## What it means
+
+Of every brand mentioned across the tracked answers, the proportion of those mentions that were yours. Unlike [brand visibility](/metrics/brand-visibility), this one is a share: it goes up when you are named more often and down when a rival is, and across all brands it sums to 100%.
+
+## How it is calculated
+
+```
+share of voice = your mentions ÷ mentions of every brand in the comparison set
+```
+
+The comparison set is **every brand detected in the window**, not only the ones in the ranking table. The table shows the top entities so it stays readable; the metric counts all of them.
+
+## Worked example
+
+In a period, your brand appears in 1,006 answers, and every other brand detected alongside you accounts for 2,137 mentions between them.
+
+- Share of voice: 1,006 ÷ (1,006 + 2,137) = **32.0%**
+
+The ranking table on the same page might list only the top nine of those brands. Adding up that table's mentions will therefore not reproduce the card — the card's denominator is larger, because it includes the long tail the table does not show.
+
+<Note>
+  Your side of the fraction counts **answers you appeared in**; the competitor side counts **mentions**, and a brand named twice in one answer contributes twice. Where that happens the metric understates your share slightly. Use it to watch a direction over time rather than as an exact ratio.
+</Note>
+
+## Where to find it
+
+The third KPI card on [Analytics](/insights/analytics), the Share of Voice column on [Competitors](/insights/competitors), and per prompt on [Prompts](/insights/prompts).
+
+[Competitors](/insights/competitors) carries a stricter variant alongside it, **rival share**, measured against your pinned competitors only and ignoring everything else that happened to be mentioned. Use share of voice to see the whole field, rival share to see the race you chose to be in.
+
+## Reading the three empty states
+
+The card does not show 0% when there is nothing to divide. It distinguishes:
+
+- **"No entity mentions yet"** — no brand at all was detected in the period. The figure is `—`, not zero, because nothing was measured.
+- **"Competitors mentioned, you weren't"** — the denominator exists, your numerator is zero. This is a real 0%.
+- **"Your share vs N tracked competitors"** — the normal case, and the N tells you how wide the comparison is.
+
+On this card and on [Competitors](/insights/competitors), a dash means the window measured nothing and a `0.0%` means it measured zero. On [Prompts](/insights/prompts) that distinction is not drawn: a prompt that never ran and a prompt that never mentioned you both read `0.0%`.
+
+## What it is not
+
+**Not a market share.** It measures how often names appear in answers to the prompts you track, which is a proxy for attention, not for revenue or customers.
+
+**Not changed by pinning.** The denominator is every detected brand whether you pinned it or not, so pinning a rival does not move this number. What pinning changes is **rival share** on [Competitors](/insights/competitors), which is measured against the pinned set alone.
+
+**Not identical to the share of voice on Competitors.** That screen computes the brand's own row from its own rollup, deliberately, so that a lagging figure stays visible instead of being hidden. The two can differ for the same window. Analytics is the one to quote.

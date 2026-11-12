@@ -1,0 +1,57 @@
+---
+title: "Citation rate"
+description: "Among AI answers that cite sources at all, the share that cite your domain."
+---
+
+## What it means
+
+When an AI assistant shows its sources, how often is one of them yours.
+
+This is the metric most often misread, because its denominator is not every answer. Most answers on most platforms carry no source links at all, and those answers are excluded — counting them would make the figure a measure of how often the platform cites anything, which is not something you can influence.
+
+## How it is calculated
+
+```
+citation rate = responses citing your domain ÷ responses that contained any source link
+```
+
+A response counts once no matter how many of your pages it cites. Subdomains of your domain count as yours.
+
+## Worked example
+
+A period collects 2,140 responses. Of those, 1,840 included at least one source link, and 442 of those cited your domain.
+
+- Citation rate: 442 ÷ 1,840 = **24.0%**
+
+Note what the figure is *not*: 442 ÷ 2,140 would be 20.7%. The card's subtitle names the real denominator — "out of N responses with source links" — for exactly this reason.
+
+<Note>
+  The subtitle says "links", but the number is a count of **responses**. A response that cites three of your pages counts once, not three times.
+</Note>
+
+## Where to find it
+
+The second KPI card on [Analytics](/insights/analytics). The sources themselves — which domains, which pages, how often — are on [Sources](/insights/sources).
+
+## Citation rate is not citation share
+
+[Sources](/insights/sources) opens with a figure called **citation share**, and it is a different calculation:
+
+| | Citation rate | Citation share |
+| --- | --- | --- |
+| Question | Of the answers with sources, how many cite *us*? | Of all answers, how many cite *anything*? |
+| Numerator | Responses citing your domain | Responses citing any source |
+| Denominator | Responses with any source link | Responses that produced output |
+| Page | [Analytics](/insights/analytics) | [Sources](/insights/sources) |
+
+Citation share measures the platforms' behaviour. Citation rate measures yours. They will not match, and neither is wrong.
+
+<Note>
+  The two are also computed from different daily rollups, so they can disagree slightly even where you would expect them to line up. If a difference matters to a decision, drill into the domain on [Sources](/insights/sources) and count the responses themselves.
+</Note>
+
+## What moves it
+
+Being cited is a property of your pages, not your brand. The levers are the ones on [Audit report](/insights/audit-report) — whether assistants are allowed to read your site, whether a page answers the question directly enough to quote, whether it carries the structure and sourcing that make it quotable.
+
+A page that ranks well in search and is never cited by an assistant is a specific, common and fixable situation. The audit calls it out as a warning rather than a pass.

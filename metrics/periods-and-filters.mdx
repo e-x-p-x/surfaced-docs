@@ -1,0 +1,65 @@
+---
+title: "Periods and filters"
+description: "The date window, the plan history floor and the branded/unbranded control — the three things that change every number on every Insights screen."
+---
+
+Every Insights screen shares one filter bar, and three of its behaviours surprise people often enough to be worth knowing before you compare two figures.
+
+## The window is anchored on your last day of data
+
+"Past 30 days" does not mean the 30 days ending today. It means the 30 days ending on the most recent day your workspace has data for.
+
+This is deliberate. A workspace whose tracking paused three weeks ago would otherwise show a month of zeroes and look like a collapse in visibility rather than a gap in collection. Anchoring on real data keeps the chart about your brand instead of about the scheduler.
+
+The page tells you when the window is not current — quietly within a couple of days, prominently after that. If a figure looks stale, read that notice first.
+
+## Trailing presets include one extra day
+
+"Past 7 days" covers 8 calendar days, and "Past 30 days" covers 31. Both ends of the range are inclusive, so today (or your anchor day) and the day 7 before it are both in.
+
+It matters when you reconcile against another tool. A 1-in-31 difference in the denominator is about 3%, which is enough to make two correct systems look like they disagree.
+
+## Your plan floors how far back you can look
+
+Each plan keeps a fixed amount of history. Pick a start date earlier than your plan allows and the range is clamped to the floor — including "everything", which becomes "as far back as your plan goes".
+
+It also decides what you open on: the default period is the longest of 7, 30 and 90 days that your plan can actually serve, so a short-history plan opens on "Past 7 days" rather than on an empty month.
+
+A notice above the table says when you are looking at a clamped window, on Analytics, Sources and Competitors. **[Prompts](/insights/prompts) shows no such notice**, so on a short-history plan that table is floored silently.
+
+One thing is deliberately not floored: the comparison period behind each delta. It is the equal-length window immediately before the current one, computed on the full data, so the change figure stays honest even where the chart cannot reach back that far.
+
+## Branded, unbranded, all
+
+A **branded** prompt contains your brand name: "is Surfaced any good?". An **unbranded** prompt does not: "best AI visibility tracker". They measure different things, and mixing them produces a number that means neither.
+
+Branded prompts return your brand nearly always, because the question already contains it. Unbranded prompts are the ones that tell you whether you are being discovered. On a workspace with both, the gap is routinely the difference between 77% and under 1%.
+
+So the control defaults to **unbranded** — the harder, more useful number. If you have never touched it, that is what you have been reading.
+
+Two consequences:
+
+- **Unclassified prompts are in neither bucket.** A prompt that has not been classified appears only under "All". Switching between branded and unbranded on a workspace with many unclassified prompts will not account for every prompt you have.
+- **Most workspaces never see the control.** It only appears once a workspace has at least one branded prompt. Everywhere else the scope is "All", and a note on the page says so.
+
+## Charts plot at most 30 points
+
+Whatever period you pick, a trend chart shows the last 30 data points. A 90-day view does not draw 90 days of line.
+
+The KPI cards above them do cover the whole period, so the card and the chart beside it are answering slightly different questions.
+
+## Filtering by platform changes only some of the numbers
+
+With an AI-platform filter active, brand visibility and citation rate are recalculated in your browser from the filtered platforms. Share of voice, average position, sentiment and the competitor table are not — they keep their unfiltered values.
+
+So a platform-filtered view mixes scopes. Read the two recalculated figures as filtered, and the rest as workspace-wide.
+
+## Filters that do not move every number
+
+On [Sources](/insights/sources), the source-type filter and the search box narrow the table and the citation counts, but not the citation-share figure in the header — that one is computed over the whole period regardless. Filtering to "News & Media" will change two of the three header numbers and leave the third still.
+
+It is not a bug; citation share answers a question about the platforms, not about the subset you are inspecting. But it does mean the header and the table can look inconsistent, and the explanation is the filter.
+
+## Everything refreshes under you
+
+When a tracking run completes, open Insights pages update themselves and show a toast. A number you were reading can change mid-session. If you are reconciling figures with a colleague, agree on the period *and* take the reading at the same time.

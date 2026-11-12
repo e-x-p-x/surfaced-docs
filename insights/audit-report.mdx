@@ -1,0 +1,55 @@
+---
+title: "Audit report"
+description: "Whether AI assistants can reach, understand and quote your website — with the specific fix for each page."
+---
+
+Audit report checks your website rather than the answers. Of everything in Surfaced it is the most directly actionable: each finding names a page, the value found on it, and what to change.
+
+## The score
+
+One [audit score](/metrics/audit-score) out of 100 with a letter grade, and three sub-scores:
+
+- **Foundation** — site-wide setup. HTTPS, whether AI crawlers are allowed in, your sitemap, your schema. Fixed once, not per page.
+- **On-page** — whether each page is labelled so an assistant knows what it is about: title tags, meta descriptions, headings, declared language.
+- **Content** — whether the content is good enough to be worth citing: depth, authority, sourcing.
+
+A sub-score is coloured by whether it contains a critical failure, not by how high it is. An amber-looking 68 shown in red has something critical in it.
+
+## The tabs
+
+**Foundation**, **On-page** and **Content** each hold a table of findings, one row per page per issue, criticals first:
+
+| Column | What it means |
+| --- | --- |
+| Page / URL | Which page the finding is on. |
+| Severity | **Critical** or **Needs work**. Passing checks are listed separately. |
+| Issue | What is wrong. |
+| Fix | What to change. |
+
+Expanding a row shows the problem and the fix side by side, with the value actually found on your page.
+
+**Off-page** is a manual best-practice checklist rather than an automated scan. Its ticks are stored in your browser, so they are per-person and per-device.
+
+## Actions
+
+**Re-check now** runs the audit again, with a few minutes' cooldown between runs. It takes minutes rather than seconds — two chained jobs — and the page says so if it runs long.
+
+**Create brief** on a content finding turns it into a writing brief with page-specific instructions, and sends you to [Briefs](/content/briefs). It never edits or publishes the page itself.
+
+There is also a **generate llms.txt** helper, and a sitemap prompt when none is found. Saving a sitemap triggers a re-check.
+
+## What it does and does not cover
+
+**It reads a sample.** Your homepage and priority pages, not the whole site. A good score on five pages says nothing about five hundred.
+
+**It is not live.** The audit reruns on an explicit re-check or on the nightly scrape. The header says when the current one was taken.
+
+**"Link authority" means internal linking.** The audit reads your own pages and the links between them. No backlink data is involved, so this is not a domain-authority score.
+
+**Competitive findings are not here.** What rivals are credited with lives on [Gap trends](/insights/gap-trends), deliberately, so the two screens do not disagree about the same thing.
+
+**A page that passes everything and is never cited is flagged.** Not as a failure, but as a warning — because passing every technical check while no assistant ever quotes you is a real and specific situation, and it is the one this product exists for.
+
+## Before the first audit
+
+"Run your first audit" with a score of `—` means no audit has completed yet. Run one; it needs nothing but a reachable website.

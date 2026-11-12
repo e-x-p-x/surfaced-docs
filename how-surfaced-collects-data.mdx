@@ -1,10 +1,42 @@
 ---
 title: "How Surfaced collects data"
-description: "What a tracking run actually does, and how often it happens."
+description: "What a tracking run does, what is recorded from each answer, and what that means for how far you can trust a number."
 ---
 
-Surfaced asks a fixed set of prompts to several AI assistants on a schedule, records each answer in full, and then reads the answers for brand mentions, competitor mentions and the sources the assistant cited.
+Understanding the collection explains most of the surprises in the numbers, so it is worth five minutes before you read a chart.
 
-The answers are the raw record. Every metric in the app is counted from them, which is why a metric can always be traced back to the answers it came from.
+## A tracking run
 
-{/* EXPX-2591 writes the rest of this page. */}
+On a schedule, Surfaced takes your tracked prompts and asks each one of each tracked AI platform, from each market and in each language you have configured. One prompt, six languages, five markets and twelve platforms is 360 questions.
+
+Each answer is stored whole. From it, Surfaced records:
+
+1. **Whether your brand was named**, in the text or as a link.
+2. **Which other brands were named**, and how often.
+3. **Where you were ranked**, if the answer ranked anything.
+4. **How you were described** — positive, neutral or negative.
+5. **Every source the answer cited**, as a URL and a domain.
+
+Every figure in the product is an aggregation of those five things. There is no modelling step and no estimation from search volume, which is why a number can always be traced back to the answers behind it.
+
+## What this means for your numbers
+
+**They are a sample.** Thirty prompts is thirty questions out of everything a buyer might ask. The sample is yours to choose, and choosing it well is the highest-leverage thing you do in Surfaced — see [Prompts](/set-up/prompts).
+
+**The same question asked twice gives different answers.** These are generative systems; identical prompts produce different wording, different orderings and sometimes different recommendations. That is why prompts are asked repeatedly and why single-run movements are not signal.
+
+**Platforms differ more than periods do.** The spread between two assistants on the same day is routinely wider than the spread on one assistant across a month. Read the per-platform charts before concluding something changed in time.
+
+**Markets are not interchangeable.** Asking from Germany is a different question from asking from the US, even in the same language, because the engines route and ground differently. See [Markets and languages](/set-up/markets-and-languages).
+
+## What is not collected
+
+**Nothing about individual users.** Surfaced asks the questions itself. It does not observe your customers' conversations with assistants, and could not.
+
+**No traffic data.** Surfaced measures whether you are recommended and cited, not whether anyone clicked. Those are different questions and the second needs your analytics.
+
+**Nothing behind a login.** Both for the assistants, which answer as an anonymous user, and for the website audit, which reads what a crawler can reach.
+
+## How fresh the data is
+
+Answers arrive per run. The date range you select is anchored on your most recent day of data rather than on today, and a run that is still in progress can be partially visible once it passes four-fifths complete. Both behaviours, and the plan history floor that bounds how far back you can look, are on [Periods and filters](/metrics/periods-and-filters).

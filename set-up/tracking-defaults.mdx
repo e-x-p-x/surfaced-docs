@@ -1,8 +1,52 @@
 ---
 title: "Tracking defaults"
-description: "How often runs happen and which assistants are asked."
+description: "Which AI platforms you track, how that drives your monthly response usage, and when to change it."
 ---
 
-Tracking defaults set the cadence of runs and which AI assistants each run covers. They apply to every prompt in the workspace unless a prompt overrides them.
+Found under the gear in the sidebar footer, on **Setup → Tracking defaults**.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## What it sets
+
+Which of the AI platforms Surfaced supports your prompts are asked of. The card shows how many are active; at least one must stay on. Platforms your plan does not include show a padlock.
+
+An individual prompt can override the workspace default where you want one question watched somewhere specific.
+
+Twelve platforms are covered, and two of them behave differently from the rest: Google Search and Google News return ranked links rather than a written answer, so they contribute citations but no sentiment.
+
+Changing the default needs the owner or manager role. Everyone else sees the setting with a note that their role cannot change it.
+
+## The schedule is not yours to set
+
+Tracking runs nightly, at a fixed time in UTC. There is no cadence control, no pause button and no "run now" for a normal member — the controls you do have are the first run during onboarding, and a retry on a run that failed or was cancelled.
+
+That is worth knowing because it bounds how fast you can see the effect of a change: at most one data point a day, per prompt, per platform.
+
+## The forecast is the important part
+
+Underneath the model list is one line worth reading before you change anything:
+
+> Estimated scheduled use — *N* / *limit* responses per month
+
+Your plan includes a monthly allowance of **tracked responses**: one prompt, asked of one model, in one language, from one market, once. The forecast multiplies your active prompts by the nightly schedule by the models you have selected, and tells you what that will cost in a month.
+
+Which makes the arithmetic visible. Adding a model does not add one response per run — it adds one per prompt per language per market per run. On a workspace with 30 prompts in 6 languages, one more model is 180 responses a run, so over 5,000 a month.
+
+If the setup exceeds what is left this month, a warning says so and names the number remaining. Reduce prompts, models or markets — or raise the plan.
+
+## Choosing platforms
+
+**Track where your buyers are, not everything available.** Spreading a fixed response budget across every model thins each one until no individual platform has enough answers to trend.
+
+**Keep a platform long enough to trend it.** Switching the set every month makes every comparison incomparable, because a period's numbers are an average over whatever was tracked then.
+
+**Untracked platforms have a real cost beyond missing data.** Gaps found only on platforms you do not track are *locked*: visible as teasers but excluded from every count on [Gap trends](/insights/gap-trends). A workspace tracking one platform can be sitting on dozens of critical findings it cannot see.
+
+## When to change it
+
+- A platform your market uses launches or becomes significant.
+- Your [per-platform charts](/insights/analytics) show one engine behaving completely differently from the rest, and you want more answers from it to be sure.
+- The forecast says you are over budget. Dropping a model you were tracking out of completeness is usually cheaper than dropping prompts.
+
+<Warning>
+  Changing the default changes every prompt that has not overridden it, including historically. Past data is not rewritten — but from the next run, your numbers are averaged over a different set of platforms, so a step in a trend line on the day you changed this is the change, not the market.
+</Warning>

@@ -1,0 +1,55 @@
+---
+title: "Briefs"
+description: "The instruction for a piece of content, and the run that turns it into articles."
+---
+
+A brief is what you want written, before it is written. One brief produces one article per market and language you have configured, in a single run.
+
+## The lifecycle
+
+| Status | What it means |
+| --- | --- |
+| Draft | Being written or edited. Nothing has been generated. |
+| Awaiting approval | The plan is ready and someone has to approve it before drafting starts. |
+| Approved | Cleared to run. |
+| Writing | The run is generating articles. |
+| Articles to review | Drafts exist and are waiting on a human. |
+| Published | At least one article from it is live. |
+| Didn't finish | The run ended without producing what it was asked for. |
+
+A brief can be edited freely while it is a draft. Once its run has started it locks: editing returns a conflict rather than silently changing what is being written. If you want a variation at that point, create a new brief.
+
+## Where briefs come from
+
+**By hand**, when you know what you want to say.
+
+**From a finding.** Accepting a suggestion on [Gap trends](/insights/gap-trends), or using **Create brief** on a content finding in [Audit report](/insights/audit-report), creates one with the specifics already filled in — which page, which issue, what the answer should cover. This is the path that keeps content work connected to evidence rather than to opinion.
+
+## The run
+
+Starting a run generates one article per target — a target being a market and language pair. Each target moves through its own states:
+
+| State | Meaning |
+| --- | --- |
+| Queued | Waiting to start. |
+| Writing | Being drafted. |
+| Checking | Drafted, running the quality checks. |
+| Written | Finished and ready to review. |
+| Didn't finish | Failed. |
+| Dropped | Deliberately not produced. |
+
+Targets are independent: one language failing does not stop the others, and the run reports counts per state rather than a single pass or fail.
+
+## Approve before drafting
+
+A brief can be set to require approval of its plan before anything is generated. You then see what the run intends to write — structure, angle, sources — and approve or change it.
+
+This is worth switching on for anything that costs real money to get wrong. It is cheaper to redirect a plan than to review and discard five articles in five languages.
+
+If the brief, the settings or the sources change after a plan was prepared, approving it is refused: the plan you are approving is no longer the plan that would run.
+
+## How many markets to run
+
+A brief with six targets is six articles' worth of generation and six articles' worth of review. The review is the part teams underestimate — a run that produces more drafts than anyone will read is how a content library fills with unchecked pages.
+
+Start with the markets where you actually lose the question, which [Prompts](/insights/prompts) grouped by market will tell you.

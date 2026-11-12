@@ -1,8 +1,58 @@
 ---
 title: "Members and roles"
-description: "Who can see and change what."
+description: "Who can do what, in the organization and in each workspace, and how the two sets of roles fit together."
 ---
 
-Roles decide who can change tracking settings, who can publish, and who can only read.
+Surfaced has two levels, and each has its own roles.
 
-{/* EXPX-2591 writes the rest of this page. */}
+An **organization** is the billing entity. It owns workspaces and holds the plan.
+
+A **workspace** is one brand being tracked, with its own prompts, competitors, settings and results. A person can belong to several, with a different role in each.
+
+Both vocabularies use the word "Owner" for different things, so it is worth being precise about which one you mean when you talk about access.
+
+## Organization roles
+
+Set under Settings → Organization → Members.
+
+| Role | Can |
+| --- | --- |
+| **Owner** | Everything: billing, members, every workspace. Can promote or remove other owners. |
+| **Admin** | Manage members and workspaces across the organization. **No billing access**, and cannot manage other admins or owners. |
+| **Member** | Belong to the organization. Actual access comes from the workspace role they hold in each workspace. |
+
+Billing lives here and only here. No workspace role grants it.
+
+## Workspace roles
+
+Set per workspace.
+
+| Role | Can |
+| --- | --- |
+| **Owner** | Full control: settings, members, content and tracking. Can delete the workspace and manage other owners. |
+| **Manager** | Settings, members, content and tracking. Cannot delete the workspace or manage other managers and owners. |
+| **Editor** | Create and edit content, tracking, and content-engine settings such as brand voice and templates. Can invite reviewers and viewers. |
+| **Reviewer** | Review and grade content; view tracking results. |
+| **Viewer** | Read-only access to content and tracking. |
+
+In practice:
+
+- **Changing settings** — owner and manager.
+- **Adding or removing prompts and competitors** — owner, manager and editor.
+- **Grading content** — everyone except viewer.
+- **Inviting people** — owners and managers can invite anyone; editors can invite reviewers and viewers only.
+- **Deleting the workspace** — owner alone.
+
+## How an invitation resolves
+
+When someone joins a workspace, their workspace role is seeded from their organization role: an org owner becomes a workspace owner, an admin a manager, and a member an editor.
+
+It is only a default. An admin can set a different workspace role per workspace, which is how you give someone full rights in one brand and read-only access in another.
+
+## Choosing a role
+
+Most teams need fewer owners than they think. Owner matters for deleting a workspace and managing other owners; everything a marketer does day to day — prompts, competitors, settings, content — is covered by manager.
+
+Reviewer is the useful one people forget: it grades content and reads results without being able to change what is tracked. It is the right role for a subject-matter expert or an agency reviewer.
+
+Viewer is read-only, which makes it right for stakeholders who want the dashboard and should not be able to move a number by editing the prompt set.

@@ -6,7 +6,7 @@
   "colors": {
     "primary": "#28030f",
     "light": "#f8ef32",
-    "dark": "#28030f"
+    "dark": "#c0254f"
   },
   "favicon": "/favicon.svg",
   "logo": {
@@ -25,13 +25,9 @@
               "index",
               "quickstart",
               "how-surfaced-collects-data",
-              "glossary",
-              "app-map"
+              "app-map",
+              "glossary"
             ]
-          },
-          {
-            "group": "Metrics",
-            "pages": ["metrics/overview"]
           },
           {
             "group": "Set up",
@@ -44,28 +40,37 @@
             ]
           },
           {
+            "group": "Metrics",
+            "pages": [
+              "metrics/overview",
+              "metrics/brand-visibility",
+              "metrics/citation-rate",
+              "metrics/share-of-voice",
+              "metrics/average-position",
+              "metrics/sentiment",
+              "metrics/audit-score",
+              "metrics/periods-and-filters"
+            ]
+          },
+          {
             "group": "Insights",
             "pages": [
               "insights/analytics",
               "insights/prompts",
               "insights/sources",
-              "insights/competitors"
+              "insights/competitors",
+              "insights/gap-trends",
+              "insights/audit-report",
+              "insights/content-performance"
             ]
           },
           {
             "group": "Improve",
-            "pages": ["improve/opportunities", "improve/actions"]
+            "pages": ["improve/actions"]
           },
           {
             "group": "Content",
-            "pages": [
-              "content/articles",
-              "content/brief-to-publish",
-              "content/brand-voice",
-              "content/templates",
-              "content/knowledge",
-              "content/content-agent"
-            ]
+            "pages": ["content/briefs", "content/articles"]
           },
           {
             "group": "Publish",

@@ -1,8 +1,55 @@
 ---
 title: "Partner API"
-description: "Run competitor scans from your own product."
+description: "Run an AI-visibility scan of any company from your own product, and receive the result as it firms up."
 ---
 
-The Partner API is for companies embedding Surfaced scans in their own product: start a scan of a company's AI-search visibility, poll for the result, and receive it as structured data.
+The Partner API is a different product from the [public API](/api/public-api). It is for partners embedding Surfaced's competitor scan in their own tools: give it a company, get back how that company appears in AI answers.
 
-{/* EXPX-2591 writes the rest of this page. */}
+It needs a partner key, issued per partner. A Surfaced account key will not work here, and a partner key will not work on the public API.
+
+## Authentication
+
+```bash
+curl https://www.getsurfaced.ai/api/partner/competitor-scan \
+  -H "Authorization: Bearer gsk_live_..." \
+  -H "Content-Type: application/json" \
+  -d '{ ... }'
+```
+
+Two kinds of key:
+
+- **`gsk_live_`** runs real scans, persists them and counts against your rate limit.
+- **`gsk_test_`** validates the request exactly as live would, then returns a deterministic sandbox result marked `sandbox: true`. Nothing is stored and no rate limit is consumed.
+
+Build against the test key. It fails on the same malformed requests the live key does, so a client that works against it works in production.
+
+## The flow
+
+<Steps>
+
+<Step title="Start a scan">
+  `POST /api/partner/competitor-scan` returns an id.
+</Step>
+
+<Step title="Poll, or receive a webhook">
+  `GET /api/partner/competitor-scan/{id}` returns the current state. Signed webhooks deliver the same payloads without polling.
+</Step>
+
+<Step title="Read the result">
+  A scan produces up to two generations of payload, distinguished by `revision`.
+</Step>
+
+</Steps>
+
+## Progressive delivery
+
+This is the part to design for. A scan does not go from nothing to a final answer: it emits a **preliminary** payload as soon as it has something usable, and may follow with a revised one as the slower parts land.
+
+So your integration should expect to receive the same scan twice, with the later revision superseding the earlier. Render the preliminary result, then update it. Treating the first payload as final gives your users a thinner answer than they paid for; waiting for the second makes the scan feel broken.
+
+## Other endpoints
+
+- `GET /api/partner/scans` — list what you have run.
+- `GET /api/partner/usage` — your consumption against the rate limit.
+
+The generated reference beside this page carries every field, every status and the webhook payload shapes, straight from the live specification.

@@ -1,8 +1,66 @@
 ---
 title: "Common issues"
-description: "What to check when something looks wrong."
+description: "The situations support hears about most, what causes each, and what to do."
 ---
 
-The handful of situations that account for most "this number looks wrong" reports, and what to check first in each.
+## A number looks wrong or has not moved
 
-{/* EXPX-2591 writes the rest of this page. */}
+**The window is not the one you think.** "Past 30 days" ends on your most recent day with data, not today, and covers 31 calendar days. If collection paused, you may be reading last month. Check the notice above the charts. [More](/metrics/periods-and-filters).
+
+**You are looking at unbranded prompts only.** That is the default where the control appears, and it is normally far lower than the blended figure. Switch to "All" to see everything.
+
+**The run is still going.** Past 80% complete the dashboard shows what has landed, with only the status pill to say the rest is coming. Figures will keep moving until it finishes.
+
+**Your plan floored the range.** A start date older than your plan keeps is clamped silently, including "everything". The notice above the table says when.
+
+## Brand visibility is 0% but Sources shows citations
+
+Your pages are being used as sources without your name being written into the answer. This is common for technical and comparison content, and it is a real finding: you are influencing the answer without getting the credit.
+
+Look at which pages are cited on [Sources](/insights/sources), then at whether those pages state who you are near the top. Assistants quote what a page says; a page that never names its author rarely produces a named recommendation.
+
+## Gap trends shows Critical 0 but I was told we have critical gaps
+
+Gaps found only on platforms you do not track are **locked**: visible as teasers, excluded from every card and count. The total card shows "+N locked" when this is happening.
+
+Either track the platform the gaps were found on, or read them as the teasers they are. [More](/insights/gap-trends).
+
+## Share of voice does not match the competitor table
+
+The card's denominator is every brand detected in the window. The ranking table shows only the top few, so adding up the table will not reproduce the card — the card includes the long tail the table leaves out.
+
+Pinning does not affect it either. Pinning changes **rival share** on [Competitors](/insights/competitors), not share of voice. [More](/metrics/share-of-voice).
+
+## Average position got worse while visibility improved
+
+Usually not a regression. Appearing in more answers often means appearing in more answers *low down*, which pulls the average up. Read the two together; the one to worry about is position worsening while visibility is flat. [More](/metrics/average-position).
+
+## The citation numbers do not reconcile
+
+Three separate things, often confused:
+
+- **Citation rate** on Analytics — of answers *with sources*, the share citing you.
+- **Citation share** on Sources — of *all* answers, the share citing anything.
+- **Usage %** in the Sources table — a domain's share of all citations in scope.
+
+Also: the source-type filter and the search box narrow the table without moving citation share, so the header and table can legitimately disagree. [More](/metrics/citation-rate).
+
+## Prompts shows more rows than Analytics seems to count
+
+The Prompts table lists every prompt regardless of brand scope; the Analytics KPIs default to unbranded. Different populations, on purpose.
+
+## The audit score changed but our site did not
+
+Adding a new category of checks re-weights the total, so a release can shift every score slightly. Check the [changelog](/changelog) before investigating. The audit also only reads your homepage and priority pages, so a change to one of those moves the score more than its size suggests.
+
+## A re-check or an analysis seems stuck
+
+The website audit is two chained jobs and takes minutes. Gap analysis reports progress and warns if nothing has happened for several minutes. Both can be cancelled and re-run; neither destroys the previous result, so a failure leaves your last good data in place.
+
+## "Couldn't load" instead of data
+
+A fetch failed. This is shown deliberately rather than rendering an empty state, so a transient failure is never mistaken for a workspace with no data. Retry; if it persists, it is worth reporting with the page and period you were on.
+
+## Nothing has run at all
+
+A tracking project needs a valid website before Insights will render. If every screen shows onboarding instead of data, that is the cause — see [Workspace](/set-up/workspace).

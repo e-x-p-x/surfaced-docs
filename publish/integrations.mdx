@@ -1,8 +1,41 @@
 ---
 title: "Integrations"
-description: "Publishing into a CMS you already use."
+description: "Getting content out of Surfaced and into the rest of your stack."
 ---
 
-If you already have a CMS, Surfaced can publish into it instead of hosting the page itself.
+Surfaced does not try to be your CMS. Where you already publish somewhere, there are three ways to connect it.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## The API
+
+The [public API](/api/public-api) covers the whole content surface: briefs, articles with their blocks and revisions, the fact-check, and publish or unpublish on the hosted blog.
+
+The usual shape of a CMS integration is to list articles that have passed their checks, pull the blocks, map them to your own content model, and record the published URL back.
+
+```bash
+curl "https://www.getsurfaced.ai/api/v1/articles?includeBlocks=true" \
+  -H "Authorization: Bearer sk_live_..."
+```
+
+Block bodies are omitted by default because they make responses large; ask for them only when you need the text.
+
+## Webhooks
+
+Rather than polling, register a webhook and be told when something happens — an article archived, a long-running job finished. Register them at `/webhooks` through the API.
+
+Webhooks are the right choice for anything that takes minutes: generation runs and audits do not finish inside a request, and polling them wastes your rate limit.
+
+## Direct integrations
+
+Some publishing integrations are enabled per workspace and appear under settings → **Integrations** when they are available to you. If that section is missing, none is enabled for your workspace.
+
+## Reading data out
+
+The same API serves the measurement side — analytics, prompts, sources, competitors, the audit report — which is what you want for a dashboard that puts AI visibility beside your other channels.
+
+For ad-hoc questions there is also an MCP server, so an AI assistant can query your workspace directly with the same key and the same permissions. For a periodic report, the analytics endpoints plus a scheduled job is usually less work than maintaining a copy of the data.
+
+## What not to build
+
+**Do not reimplement the metrics.** Pulling raw rows and computing your own visibility figure produces a number that disagrees with the app for reasons nobody will be able to reconstruct six months later. Take the computed figures from `/analytics/summary`.
+
+**Do not poll a job every second.** Use the webhook, or poll with a sensible interval. Generation takes minutes, not seconds.

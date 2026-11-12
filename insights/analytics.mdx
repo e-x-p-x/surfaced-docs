@@ -1,8 +1,51 @@
 ---
 title: "Analytics"
-description: "Your visibility over time, in one view."
+description: "The overview screen: five KPIs, their trends, per-platform breakdowns, the competitor ranking and the market split."
 ---
 
-Analytics is the overview: how often you were named, how that moved, and which assistants moved it.
+Analytics is where you start. It answers "how are we doing" across every tracked platform, and every other Insights screen is a drill-in from one of its numbers.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## What is on the page
+
+**Five KPI cards**, each with the period's figure, the fraction behind it, and a change against the immediately preceding window of the same length: [brand visibility](/metrics/brand-visibility), [citation rate](/metrics/citation-rate), [share of voice](/metrics/share-of-voice), [average position](/metrics/average-position) and [sentiment](/metrics/sentiment).
+
+**Key takeaways**, when the last run produced a summary — a short written read of what moved.
+
+Then three sections:
+
+- **Your brand** — trend charts for all four moving metrics, then the same four split by AI platform, then a strip of the platforms you are *not* tracking.
+- **Competitors** — the ranking table that [share of voice](/metrics/share-of-voice) is measured against, plus average position by competitor. Clicking a row opens that entity's detail.
+- **Markets** — visibility by country and by language, loaded when you scroll to it.
+
+## Controls
+
+The shared filter bar: a period button with presets and a custom range, a filters popover (tags, markets, languages, AI platforms, funnel stage, decision intent), and the branded/unbranded control where the workspace has branded prompts. Each per-platform chart also has its own metric toggle.
+
+All three of the behaviours that change what these numbers mean — the anchor day, the extra day on trailing presets, the plan history floor — are on [Periods and filters](/metrics/periods-and-filters).
+
+## Actions
+
+**Download PDF** exports the current view, carrying the period you have selected, and is available to every member.
+
+Tracking runs are scheduled rather than started here; see [Tracking defaults](/set-up/tracking-defaults).
+
+## What you will see before there is data
+
+| On screen | What it means |
+| --- | --- |
+| "Preparing your first tracking run" | The project exists; nothing has run yet. |
+| "Tracking run in progress (N% complete)" | The first run is under way and less than four-fifths done. |
+| The full dashboard, mid-run | Past 80%, the page shows what has landed. The status pill is the only sign the rest is still coming. |
+| "Your first tracking run didn't complete" | It failed or was cancelled, and there is no earlier success to fall back on. |
+| "No data in your plan's history window" | The period you picked is older than your plan keeps. |
+| "Couldn't load analytics" | A fetch failed. This is never shown as an empty state — a zero you can trust and a zero that failed to load look different on purpose. |
+
+<Note>
+  Between 80% and 100% of a run, the dashboard is live but incomplete. Figures will move as the remainder lands. If you are taking a reading for a report, check the status pill first.
+</Note>
+
+## Two readings worth knowing
+
+**Brand visibility at 0% with citations still arriving.** Your domain is being used as a source without your name appearing in the answer. The page says so inline when it happens, and [Sources](/insights/sources) is where to look.
+
+**A completed run with no chart data.** A run can finish while every answer inside it failed, which writes no rollups. The page falls back to the last run that produced data rather than showing an empty chart, so a stale-looking screen after a run is worth checking against the run history.

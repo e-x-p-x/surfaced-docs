@@ -1,8 +1,48 @@
 ---
 title: "Workspace"
-description: "Your brand, your website, and what they are used for."
+description: "The brand, the website and the domains you own — the settings everything else is measured against."
 ---
 
-A workspace is one brand being tracked. The brand name and website you set here are what Surfaced looks for in answers and what it uses to tell your pages apart from everyone else's.
+A workspace is one brand being tracked. Its settings decide what "you" means in every metric, so they are worth getting right before you read a number.
 
-{/* EXPX-2591 writes the rest of this page. */}
+Find them under the gear in the sidebar footer, on **Setup → General**.
+
+## The fields
+
+**Workspace name** — what this workspace is called in the switcher. Internal only.
+
+**Website URL** — your site. This is not cosmetic: the website audit reads it, and a workspace without a valid website shows onboarding instead of Insights on every screen.
+
+**Brand / product name** — the name Surfaced looks for in AI answers. Get this exactly right, including how it is usually written. If assistants write "Acme Corp" and you enter "Acme Corporation", mentions will be missed.
+
+Changing it later affects future measurements only: answers already collected keep the scores they were given, and would need re-analysis to reflect the new name. The form warns you when you edit it.
+
+**Owned domains** — every domain that is yours. A citation to any of them counts as a citation of you, and they are highlighted on [Sources](/insights/sources). Your plan limits how many you can add.
+
+**Workspace ID** — read-only, and what support will ask for.
+
+Changing any of this needs the owner or manager role; other members are sent to their account settings instead.
+
+Two things people look for here and will not find. **What your business does** — the description that shapes suggested prompts and generated content — is on the Business profile page under Knowledge. **Where you sell** is Target markets under Targeting. See [Markets and languages](/set-up/markets-and-languages).
+
+## Owned domains matter more than they look
+
+Most brands are cited on more than one hostname: a documentation site, a help centre, a blog on its own domain, a regional site, a product site separate from the corporate one.
+
+Every domain you do not list is a citation that does not count toward your [citation rate](/metrics/citation-rate), which is the most common reason that number is quietly understated. Subdomains of a listed domain are covered automatically; a genuinely different domain is not.
+
+<Note>
+  Check [Sources](/insights/sources) after a run or two. If you recognise one of your own properties among the unhighlighted rows, add it here.
+</Note>
+
+## Deleting a workspace
+
+Only an owner can, and it takes the prompts, the history and the content with it. Nothing else in the organization is affected.
+
+If what you actually want is to stop collecting, remove or pause the prompts instead — that keeps the history readable.
+
+## One workspace or several
+
+One per brand. Two brands in one workspace means one prompt set, one competitor set and one visibility figure covering both, which is almost never what you want.
+
+Several workspaces under one organization share billing and let a person hold a different role in each. That is the normal shape for an agency, or for a company with distinct product brands.

@@ -1,8 +1,58 @@
 ---
 title: "Sources"
-description: "The pages assistants cite when they answer."
+description: "Which domains the AI engines cite in your answers, how often, and which of your own pages are being used."
 ---
 
-Sources lists the URLs the assistants cited, how often, and for which prompts. It is the most direct answer to "what would I have to publish to get named here".
+Sources lists the external links AI engines cited in the tracked answers. It is the screen that tells you what the models are reading when they answer questions about your market — including, often, which of your competitors' pages are doing the work.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## What is on the page
+
+Three figures across the top:
+
+- **Citation share** — the share of answers in the period that cited *any* source. This is about the platforms' behaviour, not yours. See [citation rate](/metrics/citation-rate) for the difference.
+- **Citations** — how many citation rows the period contains.
+- **Unique domains** — how many distinct domains were cited.
+
+Then the table:
+
+| Column | What it means |
+| --- | --- |
+| Domain | The cited domain. Your own domain and its subdomains are highlighted. |
+| Type | The kind of source, inferred from the domain. |
+| Citations | How many times it was cited in the period. |
+| Usage % | Its share of all citations in scope. |
+| Language | The languages of the prompts it was cited in. |
+| Asked from | The markets those prompts were asked from. |
+| Mentioned by | The AI platforms that cited it. |
+
+Clicking a row opens the domain: which URLs were cited, how often, by which platforms, and the answers themselves.
+
+## What counts as a citation
+
+One row per answer per URL. If an answer cites the same page twice, that is one citation; if it cites two of your pages, that is two.
+
+The domain is taken from the URL, lowercased, with `www.` removed — so `www.example.com` and `example.com` are one row. Different subdomains are not merged, because they are usually different properties.
+
+## Controls
+
+Search, the shared period and filters, a **source type** filter, sorting on the first four columns, and page sizes of 25, 50 or 100.
+
+## Three things the filters do not do
+
+**The source-type filter does not move citation share.** Filter to "News & Media" and the citations and unique-domain counts narrow; citation share stays where it was. It is measured over the whole period by design.
+
+**Search does not move citations or unique domains either.** It narrows the rows and the "N sources cited" count, but usage percentages keep their unsearched denominator — so a searched table's percentages will not add to 100.
+
+**The window is whole days.** A custom range starting mid-day includes that entire day. The "last cited" date in the drill-in is a date rather than a timestamp for the same reason.
+
+## Known limits
+
+**Your own domain is in the table.** It is highlighted rather than removed, and it counts toward citations and usage percentage. When you want "who else is being cited", sort and skip your own row.
+
+**Some citations are filed under the engine, not the real source.** Where a platform returns an opaque redirect rather than the destination — certain Google grounding and search-viewer links — the citation is recorded against Google, because the target genuinely is not in the URL. Those rows are real citations; they just cannot be attributed further.
+
+**Citation share and citations come from different rollups.** They are maintained separately and can disagree slightly. When a difference would change a decision, open the domain and count the responses.
+
+## Empty states
+
+"No tracking runs yet" means no run has ever started — not that none completed. "No citations found" means the period genuinely contains none. Anything else empty is the filters, and the table says so in different words for each case.

@@ -1,0 +1,59 @@
+---
+title: "Average position"
+description: "Where in a recommendation list your brand appears, averaged over the answers that listed it."
+---
+
+## What it means
+
+When an answer recommends several options in order, average position is where yours came. 1.0 means first every time. Lower is better — the only metric in Surfaced where that is true.
+
+## How it is calculated
+
+```
+average position = sum of your rank across ranked answers ÷ number of ranked answers
+```
+
+Only answers that both mention you **by name** and present options in an order contribute. Prose that names you without ranking anything has no position to record; neither does an answer you were absent from; and neither does a mention that came only from a citation rather than from the text.
+
+Over several days it is weighted by how many ranked answers each day held, not by day. Ten ranked answers averaging 2.0 and thirty averaging 3.0 give 2.8, not 2.5.
+
+"Rank" is established three ways, and the answer decides which: an explicit numbered list, explicit ranking language ("best", "top choice"), or the order in which brands are first named in the prose. The third is the weakest, and it is common — a position of 1 can mean "named first in a paragraph" rather than "ranked first".
+
+## Worked example
+
+Six answers in the period mention your brand. Four of them rank their recommendations:
+
+| Answer | Your rank |
+| --- | --- |
+| 1 | 2 |
+| 2 | 1 |
+| 3 | 4 |
+| 4 | 3 |
+| 5 | not ranked |
+| 6 | not ranked |
+
+Average position = (2 + 1 + 4 + 3) ÷ 4 = **2.5**.
+
+Answers 5 and 6 are excluded from both halves of the fraction. In the [public demo](https://www.getsurfaced.ai/demo/insights/analytics?embed=1) the figure is **2.4**.
+
+<Warning>
+  The card's subtitle reads "across N ranked mentions out of M total responses", but N is the count of answers that mentioned you, not the count that ranked you. Where many answers name you without ranking anything, the real base is smaller than the subtitle implies.
+</Warning>
+
+## Where to find it
+
+The fourth KPI card on [Analytics](/insights/analytics), with a per-platform chart and a competitor comparison chart. Also a column on [Prompts](/insights/prompts) and on [Competitors](/insights/competitors).
+
+## What it is not
+
+**Not a search ranking.** It is a position inside one generated answer, not a position on a results page, and it can change between two runs of the same prompt on the same day.
+
+**Not comparable to a rival's unless you both appear in the same answers.** Two brands can each average 2.0 while never being listed together.
+
+**Not meaningful on a small base.** Four ranked mentions is four observations. Read it alongside the count in the subtitle, and treat a move from 2.5 to 2.1 on a handful of answers as noise.
+
+**Not improved by appearing more.** Appearing in more answers can push the average *up* if the new appearances are low in the list. A rising average position next to rising [brand visibility](/metrics/brand-visibility) is usually that, and is not a regression.
+
+<Note>
+  A dash means no answer in the window ranked you, which is different from ranking you last. If it persists while visibility is healthy, the assistants are mentioning you in prose rather than recommending you in lists.
+</Note>

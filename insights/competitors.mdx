@@ -1,8 +1,51 @@
 ---
-title: "Competitors insights"
-description: "Side by side with the brands you named."
+title: "Competitors"
+description: "Every brand detected alongside yours in the answers, and which of them count toward your share of voice."
 ---
 
-The competitor view puts your mention counts next to theirs over the same prompts and the same runs.
+Competitors lists the brands that appear in your tracked answers, with the same metrics you are measured on. Pinning is how you tell Surfaced which of them are genuine rivals.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## What is on the page
+
+One table. Your own brand is always a row, highlighted and labelled "Your brand", even in periods where it was never mentioned.
+
+| Column | What it means |
+| --- | --- |
+| Competitor | The detected brand, with its domain. |
+| Pinned | Whether it counts toward your [share of voice](/metrics/share-of-voice) and appears on the dashboard. |
+| Brand visibility | Its mentions as a share of all answers in the period. |
+| Share of voice | Its mentions against every brand mentioned alongside it. |
+| Rival share | The stricter version: measured against your pinned competitors only. Populated for pinned rows. |
+| Average position | Its average rank where answers ranked options. |
+| Mentions | Its total mentions in the period. |
+| Language, Asked from, Mentioned by | Where and on which platforms it showed up. |
+
+Clicking a row opens that brand: every prompt that mentions it, so you can see exactly which questions you are losing to whom.
+
+## Detected, added, pinned
+
+Brands get into this table on their own: the analysis of each answer is asked which other companies it named, and those arrive as **unverified** detections.
+
+**Add competitor** creates or confirms a brand by hand, in a preview-then-confirm step. It is uncapped, because adding only puts a name in the table.
+
+**Pinning** is the one your plan caps. A pinned competitor gets a **rival share** figure, appears on the dashboard, and is what you have declared to be a real rival.
+
+Pinning does **not** change [share of voice](/metrics/share-of-voice) on Analytics — that is measured against every detected brand regardless. It changes rival share, which is the comparison against your pinned set alone.
+
+Adding, pinning and unpinning need the editor role or above; anyone can read the table.
+
+## These are detections, not verified rivals
+
+Everything in this table was found in your answers. Nothing has been checked for actually competing with you. A consultancy's table will hold publishers, research firms and tool vendors alongside real competitors; a retailer's will hold marketplaces.
+
+That is not noise to be cleaned away — knowing that a trade publication is named more often than any vendor is a finding. But it does mean the unpinned rows are raw input, and pinning is the editorial step.
+
+## A dash is not a zero
+
+`—` means the window measured nothing for that row. `0.0%` means it was measured and the answer was zero. Rival share is `—` on every unpinned row because the comparison does not apply, not because the brand scored nothing.
+
+## Empty states
+
+- **No competitors detected yet** — they appear as tracking runs complete.
+- **No pinned competitors yet** — shown when the pinned-only switch is on and nothing is pinned.
+- **Your brand alone in the table** — an extra line explains it, because a single all-dashes row with no explanation reads like a bug.

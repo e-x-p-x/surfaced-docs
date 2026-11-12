@@ -1,8 +1,42 @@
 ---
-title: "Hosted blog and custom domain"
-description: "Publishing from Surfaced to your own domain."
+title: "Hosted blog"
+description: "Publishing articles on a Surfaced-hosted site, with your own domain and styling."
 ---
 
-Surfaced can host published articles and serve them from a subdomain of your own site, so the pages count as yours to the assistants that read them.
+The hosted blog is somewhere to publish without waiting on a CMS project. Articles go live on a Surfaced-hosted site, optionally on your own domain.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## Turning it on
+
+Enable it from workspace settings → **Blog**, with a title. Surfaced provisions a default hostname and the blog is live.
+
+Enabling is idempotent — doing it twice returns the site you already have — and it has to be done before any article can be published.
+
+<Note>
+  The hosted blog is not available on every workspace or every environment. If the Blog section is missing from settings, it has not been enabled for your workspace.
+</Note>
+
+## Your own domain
+
+You can serve the blog from a subdomain of your own — `blog.yourcompany.com` — rather than the default hostname.
+
+That is worth doing for one reason beyond appearances: a citation only counts toward your [citation rate](/metrics/citation-rate) if the domain is yours. Content on a Surfaced hostname is content the assistants credit to a Surfaced hostname.
+
+If you do use a separate domain, add it to **Owned domains** in [workspace settings](/set-up/workspace), or its citations will not be counted as yours.
+
+## Styling
+
+Settings cover the title, the domains and custom CSS. CSS is sanitised on save, and anything removed is listed back to you rather than silently dropped.
+
+Removing the "powered by" badge requires a plan with white-label included; without it the request is refused rather than quietly ignored.
+
+## Publishing and unpublishing
+
+Both are per article, from [Articles](/content/articles). Publishing returns the live URL. Unpublishing removes the post and keeps the article.
+
+An article that has not passed its quality checks cannot be published. See [Articles](/content/articles).
+
+## When not to use it
+
+If you already have a CMS your team publishes into, use it. The hosted blog is for teams who would otherwise not ship — a page live this week on a Surfaced hostname is worth more than a page that waits a quarter for a CMS ticket.
+
+The one thing to avoid is splitting a content programme across both without deciding which is canonical. Two versions of the same article on two domains compete with each other for the citation.

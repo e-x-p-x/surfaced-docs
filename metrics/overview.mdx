@@ -1,10 +1,44 @@
 ---
 title: "Metrics overview"
-description: "How to read a Surfaced number, and where each one comes from."
+description: "The five numbers on the Analytics page, what each one counts, and which questions each can and cannot answer."
 ---
 
-Every metric on this page has its own page with four things: what it means in a sentence, the formula, a worked example with real arithmetic, and where in the app to find it.
+Every number in Surfaced is a count of AI answers that were actually returned. Nothing is modelled from search volume or estimated from traffic. When a figure says 47%, it means 47% of the answers we collected in that period, and you can get to the individual answers behind it.
 
-They are all counted from the stored answers of a tracking run, so two metrics that disagree are usually counting over different sets of answers rather than contradicting each other.
+That has one consequence worth holding on to: a metric can only be as representative as the prompts you track and the period you are looking at. Thirty prompts is a sample of what buyers ask, not a census.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## The five on Analytics
+
+| Metric | The question it answers | Page |
+| --- | --- | --- |
+| [Brand visibility](/metrics/brand-visibility) | How often are we named at all? | [Analytics](/insights/analytics) |
+| [Citation rate](/metrics/citation-rate) | When an answer cites sources, how often is one of them ours? | [Analytics](/insights/analytics) |
+| [Share of voice](/metrics/share-of-voice) | Of all the brands named, how much of the airtime is ours? | [Analytics](/insights/analytics) |
+| [Average position](/metrics/average-position) | When we are listed, how near the top? | [Analytics](/insights/analytics) |
+| [Sentiment](/metrics/sentiment) | When we are named, how are we described? | [Analytics](/insights/analytics) |
+
+There is a sixth number on a different screen, scored a different way: the [audit score](/metrics/audit-score) on [Audit report](/insights/audit-report), which measures your website rather than the answers.
+
+## Two denominators, not one
+
+The most common misreading in Surfaced comes from assuming all five metrics share a denominator. They do not.
+
+Brand visibility, share of voice, average position and sentiment are measured against **answers**. Citation rate is measured against **answers that contained source links at all** — which on most platforms is a minority of them. A citation rate of 24% does not mean one answer in four links to you; it means that among the answers that linked to anything, one in four linked to you.
+
+Average position and sentiment narrow further still: both are measured only over the answers where you appeared. An average position of 2.4 says nothing about the answers you were absent from, and cannot, because an absence has no rank.
+
+<Note>
+  If brand visibility is 0% while sources still shows citations, your domain is being used as a source without your name being written in the answer. Check [Sources](/insights/sources) — the Analytics page says so in an inline note when it happens.
+</Note>
+
+## Every metric has a period
+
+None of these figures means anything without the window it was measured over, and the window is not always the one you think you picked. Trailing presets paint one day more than their name suggests, the range is anchored on your most recent day of data rather than today, and your plan floors how far back it can reach.
+
+Those three behaviours apply to every metric and every Insights screen. They are on one page: [Periods and filters](/metrics/periods-and-filters). Read it before you compare two numbers.
+
+## What a change means
+
+A metric card shows a delta against the immediately preceding window of equal length. A 30-day view compares against the 30 days before it, not against last month's calendar.
+
+Treat small movements as noise. A single tracking run can move a 30-prompt workspace by a point or two on its own, and the comparison window has the same sampling error as the current one. What is worth acting on is a direction that holds across several runs — which is what the trend charts under each KPI are for.

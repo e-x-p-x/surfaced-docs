@@ -1,10 +1,68 @@
 ---
 title: "Public API"
-description: "Read your Surfaced data programmatically."
+description: "Authenticate, call the API, and know which parts of the product it reaches."
 ---
 
-The public API exposes the same data the app shows: prompts, answers, mentions, sources and the metrics counted from them. Every endpoint is listed in this section, generated from the live specification.
+The Surfaced API gives programmatic access to everything the app shows you: analytics, prompts, topics, sources, competitors, tracking runs, the audit report, actions, content, knowledge, settings and membership.
 
-You can also connect Claude, Cursor or VS Code to Surfaced without writing any code — see the assistant instructions in the specification's own description.
+```
+https://www.getsurfaced.ai/api/v1
+```
 
-{/* EXPX-2591 writes the rest of this page. */}
+The full reference on the pages beside this one is generated from the live specification, so it cannot drift from what the API actually accepts.
+
+## Authentication
+
+Every request carries an API key as a bearer token:
+
+```bash
+curl https://www.getsurfaced.ai/api/v1/me \
+  -H "Authorization: Bearer sk_live_..."
+```
+
+Create and revoke keys in the app under **Settings → Account → API keys**. A key carries your own access: it can reach the workspaces you are a member of and do what your role permits, so a viewer's key cannot change a prompt.
+
+<Warning>
+  A key is shown once, at creation. Treat it as a password — out of source control, out of client-side code, and revoked rather than reused when someone leaves.
+</Warning>
+
+## Start with `/me`
+
+```bash
+curl https://www.getsurfaced.ai/api/v1/me -H "Authorization: Bearer $SURFACED_KEY"
+```
+
+It confirms the key works and tells you which organization and workspaces it reaches. Every other call is scoped by that.
+
+## What is where
+
+| You want | Endpoints |
+| --- | --- |
+| The headline numbers | `/analytics/summary`, `/analytics/trend` |
+| Tracked questions and their results | `/prompts`, `/topics` |
+| Who is cited | `/sources`, `/competitors` |
+| Runs | `/tracking-runs`, and `/tracking-runs/{id}/cancel` |
+| The website audit | `/audit-report`, `/audit-report/recheck` |
+| The work queue | `/actions`, with accept, complete, decline and restore |
+| Content | `/briefs`, `/articles`, `/pages`, and publish/unpublish |
+| Knowledge | `/knowledge/documents`, `/knowledge/search` |
+| Configuration | `/settings`, including markets, brand voice and tracking models |
+| People | `/organization/members`, `/workspace/members` |
+
+## Long-running work
+
+Generation and audits do not finish inside a request. Those endpoints return a job, which you poll:
+
+```
+GET /api/v1/jobs/{id}
+```
+
+Rather than polling, you can register a webhook at `/webhooks` and be told when the work finishes.
+
+## Rate limits and errors
+
+Errors come back as JSON with a machine-readable code and a human-readable message. Two worth handling explicitly: `402` when an action would exceed your plan's allowance — see [Billing and usage](/account/billing-and-usage) — and `403` when the key's role cannot do what you asked.
+
+## Using it from an AI assistant
+
+There is an MCP server, so Claude, Cursor or VS Code can call Surfaced without you writing a client. It is the fastest way to ask questions of your own data ad hoc, and it uses the same keys and the same permissions as the API.

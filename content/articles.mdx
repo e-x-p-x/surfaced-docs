@@ -1,8 +1,42 @@
 ---
 title: "Articles"
-description: "Writing and managing content inside Surfaced."
+description: "Your content library: reviewing drafts, the fact-check, revisions, and archiving."
 ---
 
-Articles are the pieces Surfaced helps you write against a specific gap in your visibility, rather than against a keyword.
+Articles is everything that has been written, at whatever stage. Each one is made of blocks — paragraphs, headings and the rest — and carries its own history.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## Reviewing a draft
+
+A draft arriving from a [brief](/content/briefs) run is finished text, not an outline. The review question is not "is this written" but "is this true, and is it ours".
+
+Three things to look at, in order:
+
+**The fact-check.** Every article carries a fact-check with a score out of 100 and a list of issues. Issues can be dismissed when they are wrong, and a dismissal is remembered — the report shows what was dismissed rather than quietly dropping it.
+
+**The claims nobody can source.** The checks catch contradictions and unsupported assertions; they cannot catch a statement that is plausible, unsourced and wrong about your own product. That part is yours.
+
+**Whether it sounds like you.** Brand voice is configured in workspace settings, and it gets most of the way there. The last stretch is editing.
+
+## Editing
+
+Block content is edited in the app. Metadata — title, description, excerpt, categories, tags, language — can also be changed through the [API](/api/public-api).
+
+Every saved change creates a revision you can view and restore. Restoring is version-checked, so a restore cannot silently overwrite an edit someone else made while you were looking at an older version.
+
+## Publishing
+
+**Publish** puts the article on your [hosted blog](/publish/hosted-blog) and returns the live URL. It requires the hosted blog to be enabled.
+
+An article that has not passed its checks is not published. That is a hard gate, not a warning: a critical finding makes a piece unpublishable until it is resolved or the finding is dismissed with a reason.
+
+**Unpublish** takes it off the blog and leaves the article in the workspace. Nothing is lost; the URL stops resolving.
+
+## Archiving
+
+Deleting an article archives it: it leaves the default list and keeps its history. Archiving something already archived just refreshes the timestamp rather than failing.
+
+Prefer archiving to deleting. An article that stopped being true is evidence of what you used to say, and it costs nothing to keep.
+
+## Did it work?
+
+Publishing is not the end of the loop. Whether a page is being cited by the assistants is on [Content performance](/insights/content-performance), and it takes time — the engines have to re-read your site, and then a tracking run has to ask the questions again.

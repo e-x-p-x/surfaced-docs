@@ -1,8 +1,51 @@
 ---
 title: "Billing and usage"
-description: "What you are charged for, and how to see it."
+description: "What your plan meters, where to watch it, and what happens when you reach a limit."
 ---
 
-Surfaced bills on the volume of answers collected. This page explains what counts as usage and where to see the current period.
+Billing lives at the organization level: avatar menu → Organization → **Billing & Usage**. Only an organization **owner** can open it. Organization admins cannot, deliberately — they manage people and workspaces, not money.
 
-{/* EXPX-2591 writes the rest of this page. */}
+## What the plan includes
+
+A plan is a flat monthly or yearly subscription with allowances included. You are not charged per answer collected.
+
+The main allowance is **tracked responses**: one prompt, asked of one model, in one language, from one market, once. A workspace with 30 prompts on 4 models in 2 languages uses 240 responses a night.
+
+Also metered: content items (articles) per month, workspaces, pinned competitors per workspace, assistant messages per day, website knowledge pages, and owned domains per workspace.
+
+**Saved prompts are not metered.** There is no cap on how many questions you may keep. What costs is running them.
+
+## Where to watch it
+
+The Billing & Usage page shows progress bars for content items and tracked responses, a line for workspaces, a projection of your scheduled use for the month, and a per-workspace breakdown.
+
+Two other places show the same budget closer to where you spend it:
+
+- [Tracking defaults](/set-up/tracking-defaults) forecasts what your current model selection will use in a month.
+- [Prompts](/insights/prompts) shows what the prompt set costs, and warns as you approach the limit.
+
+## What happens at the limit
+
+**Tracked responses — collection stops.** It is all or nothing: a run that would exceed the allowance does not run at all, and the scheduled runs are recorded as cancelled rather than failed. The banner says it plainly: nightly brand checks have stopped and will not resume until the quota resets or you upgrade.
+
+Nothing is queued and run later. Those nights are simply not collected, and they will be a gap in your history afterwards.
+
+**Content items — depends on the plan.** Where a plan allows overage, generation continues and the extra is invoiced. Where it does not, generation stops.
+
+Warnings arrive before the wall: in-app at 70%, 90% and 100% for responses, and by email at 70% and when the limit is reached.
+
+## Plans and what you are actually on
+
+The plan you are running on is not always the plan on your subscription. A complimentary grant or a converting trial can put you on a higher plan while the subscription record still shows the old one. The billing page names what you are on, when it expires, and what you fall back to.
+
+If support tells you something is included and the app disagrees, this is usually why — quote what the Billing & Usage page says, not what you signed up for.
+
+## Changing or cancelling
+
+Plan changes and cancellation go through the Stripe billing portal, reachable from the billing page by the organization owner. There is no in-app cancel button. A pending downgrade shows as a banner until it takes effect.
+
+A coupon can be applied by link at checkout. An invalid or expired code degrades to a notice and full price rather than failing the checkout.
+
+## Before you upgrade
+
+Most limit problems are shape problems, not size problems. Before buying more responses, check whether you are spending them on prompts you do not read, languages your buyers do not use, or platforms you track out of completeness. [Markets and languages](/set-up/markets-and-languages) has the arithmetic.
