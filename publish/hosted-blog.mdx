@@ -17,23 +17,49 @@ Enabling is idempotent — doing it twice returns the site you already have — 
 
 ## Your own domain
 
-You can serve the blog from a subdomain of your own — `blog.yourcompany.com` — rather than the default hostname.
+You can serve the blog from a subdomain of your own — `blog.yourcompany.com` — rather than the default hostname. Subdomains only; an apex domain is not supported.
 
-That is worth doing for one reason beyond appearances: a citation only counts toward your [citation rate](/metrics/citation-rate) if the domain is yours. Content on a Surfaced hostname is content the assistants credit to a Surfaced hostname.
+That is worth doing for one reason beyond appearances: a citation only counts toward your [citation rate](/metrics/citation-rate) if the domain is yours. Content on a Surfaced hostname is credited to a Surfaced hostname.
 
-If you do use a separate domain, add it to **Owned domains** in [workspace settings](/set-up/workspace), or its citations will not be counted as yours.
+Add the domain under settings → Blog → Domains. You are given exactly two records to create — a CNAME, and a TXT verification record where one is needed. Never an A record. Surfaced then checks in the background; you can also check on demand, once a minute. Verification gives up after 72 hours, so a typo sits there failing rather than silently retrying forever.
+
+Up to five domains per workspace.
+
+If you use a separate domain, add it to **Owned domains** in [workspace settings](/set-up/workspace) as well, or the citations it earns will not be counted as yours. These are two different lists and both matter.
+
+Serving the blog under a path on your main site — `yourcompany.com/blog` — is also supported, through your own proxy, with a verification file to prove the path is yours.
 
 ## Styling
 
-Settings cover the title, the domains and custom CSS. CSS is sanitised on save, and anything removed is listed back to you rather than silently dropped.
+Settings cover the title, tagline, logo, accent colour, a choice of three themes, light or dark, the default language, and custom CSS.
 
-Removing the "powered by" badge requires a plan with white-label included; without it the request is refused rather than quietly ignored.
+CSS is capped and sanitised on save, and anything removed is listed back to you rather than silently dropped.
+
+Removing the "powered by" badge and using custom CSS both require a plan that includes white-labelling; without it the request is refused rather than quietly ignored.
+
+## What is generated for you
+
+Enabling the blog also produces, with no further action: a sitemap, an RSS feed, `robots.txt`, `llms.txt`, social preview images, structured data, language alternates, and Markdown versions of each post for AI agents to read.
+
+That last one is the point of the exercise. The blog exists to be quoted.
 
 ## Publishing and unpublishing
 
-Both are per article, from [Articles](/content/articles). Publishing returns the live URL. Unpublishing removes the post and keeps the article.
+Both are per article, from [Articles](/content/articles), individually or in bulk. Publishing returns the live URL. Unpublishing removes the post and keeps the article.
 
-An article that has not passed its quality checks cannot be published. See [Articles](/content/articles).
+An article that has not passed its draft checks cannot be published, by anyone, and the check is re-evaluated continuously rather than once. See [Articles](/content/articles) for what that means for a live page.
+
+Three behaviours worth knowing:
+
+- The live post is a **snapshot** taken at publish time. Editing the article afterwards changes the draft only, until you use **Update on blog**.
+- **Changing a slug on a live post leaves a redirect** from the old URL, so links already shared keep working.
+- **Archiving an article takes it off the blog automatically**, and restoring it does not put it back.
+
+There is an opt-in auto-publish. It never publishes anything flagged for human review.
+
+## What it does not do
+
+No scheduling or editorial calendar. No per-post meta overrides, no author byline, no `noindex` toggle. The blog's own interface is English regardless of the language you publish in.
 
 ## When not to use it
 

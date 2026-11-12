@@ -5,17 +5,25 @@ description: "Your content library: reviewing drafts, the fact-check, revisions,
 
 Articles is everything that has been written, at whatever stage. Each one is made of blocks — paragraphs, headings and the rest — and carries its own history.
 
+## Two different statuses
+
+Every row carries two, and they are independent:
+
+**Draft checks** — whether the quality checks have run and what they found: not checked, queued, checking, checks passed, changes needed, or could not finish.
+
+**Publication** — not published, published, live URL linked, or **draft differs from live**. The last one matters: the blog serves a snapshot taken at publish time, so editing a published article changes the draft and not the live page until you update it.
+
+A **review needed** chip appears when the pipeline shipped something on a judgement call that nobody has looked at since.
+
 ## Reviewing a draft
 
 A draft arriving from a [brief](/content/briefs) run is finished text, not an outline. The review question is not "is this written" but "is this true, and is it ours".
 
-Three things to look at, in order:
+**Draft checks** gives a score out of 100 and a list of items. Two kinds: a **finding** is serious enough to block publication; a **suggestion** is not. Each can be fixed in place, with help from **Fix with AI**, and then rechecked.
 
-**The fact-check.** Every article carries a fact-check with a score out of 100 and a list of issues. Issues can be dismissed when they are wrong, and a dismissal is remembered — the report shows what was dismissed rather than quietly dropping it.
+What the checks cannot do is catch a statement that is plausible, unsourced and wrong about your own product. That part is yours.
 
-**The claims nobody can source.** The checks catch contradictions and unsupported assertions; they cannot catch a statement that is plausible, unsourced and wrong about your own product. That part is yours.
-
-**Whether it sounds like you.** Brand voice is configured in workspace settings, and it gets most of the way there. The last stretch is editing.
+The last stretch is voice. Brand voice settings get most of the way; the remainder is editing.
 
 ## Editing
 
@@ -23,19 +31,27 @@ Block content is edited in the app. Metadata — title, description, excerpt, ca
 
 Every saved change creates a revision you can view and restore. Restoring is version-checked, so a restore cannot silently overwrite an edit someone else made while you were looking at an older version.
 
-## Publishing
+## The publish gate
 
-**Publish** puts the article on your [hosted blog](/publish/hosted-blog) and returns the live URL. It requires the hosted blog to be enabled.
+An article that has not passed its draft checks cannot be published. This is enforced in the database, not in the page, so it applies however publication is attempted — the app, the API, any integration. There is no override and no "publish anyway", for any role.
 
-An article that has not passed its checks is not published. That is a hard gate, not a warning: a critical finding makes a piece unpublishable until it is resolved or the finding is dismissed with a reason.
+The message you get is: *check this page revision and resolve its findings before publishing.*
 
-**Unpublish** takes it off the blog and leaves the article in the workspace. Nothing is lost; the URL stops resolving.
+<Warning>
+  The gate is evaluated per revision, continuously — not once at publish time. Rechecking a live article and getting "changes needed" takes it off the blog until it passes again, and the URL 404s in the meantime. Recheck a published page when you are ready to fix what comes back, not to see what happens.
+</Warning>
 
-## Archiving
+**Publish** puts the article on your [hosted blog](/publish/hosted-blog) and returns the live URL. **Update on blog** pushes later edits to the live page. **Unpublish** removes the post and keeps the article.
 
-Deleting an article archives it: it leaves the default list and keeps its history. Archiving something already archived just refreshes the timestamp rather than failing.
+## Archiving and deleting
 
-Prefer archiving to deleting. An article that stopped being true is evidence of what you used to say, and it costs nothing to keep.
+They are not the same thing.
+
+**Archive** is reversible. The article leaves the default list, keeps its history, and the toast offers an immediate undo. Archiving a published article also takes it off the blog — and restoring it does **not** put it back, so a restored article has to be republished.
+
+**Delete permanently** is a hard delete with no undo.
+
+Prefer archiving. An article that stopped being true is evidence of what you used to say, and it costs nothing to keep.
 
 ## Did it work?
 

@@ -5,25 +5,43 @@ description: "The instruction for a piece of content, and the run that turns it 
 
 A brief is what you want written, before it is written. One brief produces one article per market and language you have configured, in a single run.
 
-## The lifecycle
+## The statuses
 
 | Status | What it means |
 | --- | --- |
-| Draft | Being written or edited. Nothing has been generated. |
-| Awaiting approval | The plan is ready and someone has to approve it before drafting starts. |
-| Approved | Cleared to run. |
-| Writing | The run is generating articles. |
-| Articles to review | Drafts exist and are waiting on a human. |
-| Published | At least one article from it is live. |
-| Didn't finish | The run ended without producing what it was asked for. |
+| Not started | Saved, nothing generated. Saving a brief never starts generation. |
+| Queued | Waiting for capacity. |
+| Drafting | Being written. |
+| Drafting complete | Every target produced a draft. |
+| Partly drafted | Some targets produced a draft and some did not. |
+| Generation failed | The run ended without producing what it was asked for. |
+| Generation cancelled | Stopped deliberately. |
 
-A brief can be edited freely while it is a draft. Once its run has started it locks: editing returns a conflict rather than silently changing what is being written. If you want a variation at that point, create a new brief.
+A **New work paused** chip appears when drafting has been held — usually because the workspace has used its monthly article allowance.
+
+<Warning>
+  "Drafting complete" means text exists. It does not mean reviewed, and it does not mean published. The page says so permanently in its footer, because this is the step teams skip.
+</Warning>
+
+A brief can be edited freely until its run starts. After that it locks: an edit is refused rather than quietly changing what is being written. If you want a variation at that point, create a new brief.
+
+## What goes in one
+
+Only the brief itself — what you want written — is required. Everything else falls back to your workspace settings: keyword, target markets, audience, category and search intent, a template, word counts and which sections to include.
+
+The field that costs you most is **target markets**. Each market-and-language row produces one article, so a brief with six rows is six drafts to review.
+
+Editing autosaves. Saving never starts generation.
 
 ## Where briefs come from
 
-**By hand**, when you know what you want to say.
+**By hand** — the Write article button, for when you know what you want to say.
 
-**From a finding.** Accepting a suggestion on [Gap trends](/insights/gap-trends), or using **Create brief** on a content finding in [Audit report](/insights/audit-report), creates one with the specifics already filled in — which page, which issue, what the answer should cover. This is the path that keeps content work connected to evidence rather than to opinion.
+**In bulk** — one brief per line, or a CSV import that maps your own column headings and hands back a file of anything it could not resolve.
+
+**From a finding.** Accepting a suggestion on [Gap trends](/insights/gap-trends), or **Create brief** on a content finding in [Audit report](/insights/audit-report), fills in the specifics: which page, which issue, what the answer has to cover. This is the path that keeps content work tied to evidence rather than to opinion.
+
+**From the Inbox tab**, where suggestions arrive to be accepted or ignored.
 
 ## The run
 
@@ -39,6 +57,10 @@ Starting a run generates one article per target — a target being a market and 
 | Dropped | Deliberately not produced. |
 
 Targets are independent: one language failing does not stop the others, and the run reports counts per state rather than a single pass or fail.
+
+A run takes **roughly eight to fifteen minutes per language**. While it goes you can watch it: named agents report what they are doing, and the section being written streams in as it is composed. That live text is not saved — reload the page and you see the stored draft instead.
+
+If a target already has a live page, you are asked whether to overwrite it or create a new version.
 
 ## Approve before drafting
 

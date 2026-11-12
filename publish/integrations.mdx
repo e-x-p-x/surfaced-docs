@@ -20,13 +20,19 @@ Block bodies are omitted by default because they make responses large; ask for t
 
 ## Webhooks
 
-Rather than polling, register a webhook and be told when something happens — an article archived, a long-running job finished. Register them at `/webhooks` through the API.
+Rather than polling, register a webhook and be told when something happens: a page published, unpublished, archived, or found to need changes. Register them at `/webhooks` through the API — there is no interface for this, and the deliveries are signed so you can verify they came from us.
 
-Webhooks are the right choice for anything that takes minutes: generation runs and audits do not finish inside a request, and polling them wastes your rate limit.
+Webhooks are the right choice for anything that takes minutes. Generation runs take eight to fifteen minutes per language and audits take several, so polling them wastes your rate limit for no benefit.
+
+<Note>
+  A publish that happens through an external integration rather than the hosted blog does not raise the published event. If your pipeline depends on that signal, publish through the blog or the API.
+</Note>
 
 ## Direct integrations
 
-Some publishing integrations are enabled per workspace and appear under settings → **Integrations** when they are available to you. If that section is missing, none is enabled for your workspace.
+A **Shopify** integration exists — connect by OAuth and publish an article as a Shopify page or blog post, as a draft or live. It is a limited pilot, enabled per workspace, and appears under settings → **Integrations** only where it has been turned on.
+
+There is no WordPress, Webflow or Ghost integration. For those, use the API.
 
 ## Reading data out
 
