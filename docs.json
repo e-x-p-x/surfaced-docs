@@ -6,7 +6,21 @@
   "colors": {
     "primary": "#28030f",
     "light": "#f8ef32",
-    "dark": "#c0254f"
+    "dark": "#f8ef32"
+  },
+  "appearance": {
+    "default": "light",
+    "strict": true
+  },
+  "fonts": {
+    "heading": {
+      "family": "Geist",
+      "weight": 800
+    },
+    "body": {
+      "family": "Geist",
+      "weight": 400
+    }
   },
   "favicon": "/favicon.svg",
   "logo": {
@@ -114,8 +128,12 @@
   "navbar": {
     "links": [
       {
-        "label": "Status",
-        "href": "https://www.getsurfaced.ai/status"
+        "label": "Home",
+        "href": "https://www.getsurfaced.ai"
+      },
+      {
+        "label": "Pricing",
+        "href": "https://www.getsurfaced.ai/pricing"
       }
     ],
     "primary": {
@@ -126,9 +144,57 @@
   },
   "footer": {
     "socials": {
-      "linkedin": "https://www.linkedin.com/company/getsurfaced",
-      "website": "https://www.getsurfaced.ai"
-    }
+      "website": "https://www.getsurfaced.ai",
+      "linkedin": "https://www.linkedin.com/company/surfaced_ai",
+      "x": "https://x.com/surfaced_ai",
+      "instagram": "https://www.instagram.com/surfaced_ai",
+      "youtube": "https://www.youtube.com/@Surfaced_ai",
+      "facebook": "https://www.facebook.com/surfacedai"
+    },
+    "links": [
+      {
+        "header": "Surfaced",
+        "items": [
+          {
+            "label": "Home",
+            "href": "https://www.getsurfaced.ai"
+          },
+          {
+            "label": "Pricing",
+            "href": "https://www.getsurfaced.ai/pricing"
+          },
+          {
+            "label": "Blog",
+            "href": "https://www.getsurfaced.ai/blog"
+          },
+          {
+            "label": "Open the app",
+            "href": "https://www.getsurfaced.ai/app"
+          }
+        ]
+      },
+      {
+        "header": "Help centre",
+        "items": [
+          {
+            "label": "Quickstart",
+            "href": "https://docs.getsurfaced.ai/quickstart"
+          },
+          {
+            "label": "Metrics",
+            "href": "https://docs.getsurfaced.ai/metrics/overview"
+          },
+          {
+            "label": "Troubleshooting",
+            "href": "https://docs.getsurfaced.ai/troubleshooting/faq"
+          },
+          {
+            "label": "Changelog",
+            "href": "https://docs.getsurfaced.ai/changelog"
+          }
+        ]
+      }
+    ]
   },
   "seo": {
     "metatags": {

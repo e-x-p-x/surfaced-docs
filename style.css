@@ -1,0 +1,114 @@
+/*
+ * Surfaced brand overrides for the Mintlify help centre.
+ *
+ * Mintlify picks any .css file in the content directory up automatically, so
+ * this file is never imported anywhere. What it cannot express lives in
+ * docs.json: the palette (`colors`), Geist (`fonts`) and light-only
+ * (`appearance.strict`). This file is only for what those keys cannot reach.
+ *
+ * The brand is LIGHT ONLY — cream ground, burgundy ink, yellow accent. There
+ * is no dark palette to be faithful to, which is why docs.json pins
+ * `appearance.strict` rather than this file guessing at dark-mode values.
+ *
+ * Source of truth is the live site getsurfaced.ai, not the product repo:
+ * ground #f9f4f1, ink #28030f, accent #f8ef32, Geist.
+ */
+
+:root {
+  --surfaced-ground: #f9f4f1;
+  --surfaced-ink: #28030f;
+  --surfaced-accent: #f8ef32;
+  --surfaced-border: #ddd5cc;
+  --surfaced-muted: #6b5e54;
+}
+
+/* ---------------------------------------------------------------------------
+ * Ground
+ *
+ * Mintlify's light theme is white. The brand ground is cream, and the cards,
+ * code blocks and tables stay white on top of it — the same relationship the
+ * marketing site has. Set on both html and body: the page background is
+ * painted by whichever of the two has one, and Mintlify sets neither.
+ * ------------------------------------------------------------------------ */
+html,
+body {
+  background-color: var(--surfaced-ground);
+}
+
+/* ---------------------------------------------------------------------------
+ * The CTA
+ *
+ * docs.json's `colors.dark` already paints this button, because Mintlify maps
+ * that key to `--primary-dark` and the button's fill is a `bg-primary-dark`
+ * span. So the yellow comes from the palette, not from here.
+ *
+ * What the palette cannot do is the label. Mintlify picks the button's text
+ * colour for a DARK fill (white), and brand yellow is a light fill, so the
+ * label would be white on yellow — about 1.3:1. Everything below is that one
+ * correction, plus the brand's button treatment from the live site:
+ * uppercase, bold, wide tracking.
+ *
+ * Targeted by `#topbar-cta-button` rather than by the Tailwind classes on the
+ * anchor, which are generated and will not survive a Mintlify release.
+ * ------------------------------------------------------------------------ */
+#topbar-cta-button a,
+#topbar-cta-button a span,
+#topbar-cta-button a div,
+.topbar-cta-button a,
+.topbar-cta-button a span {
+  color: var(--surfaced-ink) !important;
+}
+
+#topbar-cta-button a,
+.topbar-cta-button a {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* The chevron rides on `currentColor` in some builds and a fill in others. */
+#topbar-cta-button a svg,
+.topbar-cta-button a svg {
+  color: var(--surfaced-ink) !important;
+  fill: currentColor;
+}
+
+/* ---------------------------------------------------------------------------
+ * Headings
+ *
+ * The marketing h1 is `font-black leading-[0.9] tracking-tight`. Mintlify
+ * ships headings at 600, which reads as a different brand beside the site.
+ * Geist is a variable font on Google Fonts, so 900 is real rather than
+ * synthesised.
+ * ------------------------------------------------------------------------ */
+h1,
+#page-title,
+h1#page-title {
+  font-weight: 900 !important;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  color: var(--surfaced-ink);
+}
+
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--surfaced-ink);
+}
+
+/* ---------------------------------------------------------------------------
+ * Surfaces
+ *
+ * Cards and code blocks keep a white fill so they lift off the cream, and
+ * borders take the brand's warm grey instead of Tailwind's cool one.
+ * ------------------------------------------------------------------------ */
+#content-area table,
+#content-area pre {
+  background-color: #fff;
+}
+
+#content-area table th,
+#content-area table td {
+  border-color: var(--surfaced-border);
+}
