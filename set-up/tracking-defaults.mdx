@@ -17,9 +17,9 @@ Changing the default needs the owner or manager role. Everyone else sees the set
 
 ## The schedule is not yours to set
 
-Tracking runs nightly, at a fixed time in UTC. There is no cadence control, no pause button and no "run now" for a normal member — the controls you do have are the first run during onboarding, and a retry on a run that failed or was cancelled.
+Tracking runs nightly, at a fixed time in UTC. There is no cadence control, no pause button and no "run now" for a normal member. The controls you do have are the first run during onboarding, and a retry on a run that failed or was cancelled.
 
-That is worth knowing because it bounds how fast you can see the effect of a change: at most one data point a day, per prompt, per platform.
+That bounds how fast you can see the effect of a change: at most one data point a day, per prompt, per platform.
 
 ## The forecast is the important part
 
@@ -29,13 +29,13 @@ Underneath the model list is one line worth reading before you change anything:
 
 Your plan includes a monthly allowance of **tracked responses**: one prompt, asked of one model, in one language, from one market, once. The forecast multiplies your active prompts by the nightly schedule by the models you have selected, and tells you what that will cost in a month.
 
-Which makes the arithmetic visible. Adding a model does not add one response per run — it adds one per prompt per language per market per run. On a workspace with 30 prompts in 6 languages, one more model is 180 responses a run, so over 5,000 a month.
+The arithmetic is worth seeing. Adding a model adds one response per prompt per language per market per run. On a workspace with 30 prompts in 6 languages, one more model is 180 responses a run, so over 5,000 a month.
 
-If the setup exceeds what is left this month, a warning says so and names the number remaining. Reduce prompts, models or markets — or raise the plan.
+If the setup exceeds what is left this month, a warning says so and names the number remaining. Reduce prompts, models or markets, or raise the plan.
 
 ## Choosing platforms
 
-**Track where your buyers are, not everything available.** Spreading a fixed response budget across every model thins each one until no individual platform has enough answers to trend.
+**Track where your buyers are rather than everything available.** Spreading a fixed response budget across every model thins each one until no individual platform has enough answers to trend.
 
 **Keep a platform long enough to trend it.** Switching the set every month makes every comparison incomparable, because a period's numbers are an average over whatever was tracked then.
 
@@ -48,5 +48,5 @@ If the setup exceeds what is left this month, a warning says so and names the nu
 - The forecast says you are over budget. Dropping a model you were tracking out of completeness is usually cheaper than dropping prompts.
 
 <Warning>
-  Changing the default changes every prompt that has not overridden it, including historically. Past data is not rewritten — but from the next run, your numbers are averaged over a different set of platforms, so a step in a trend line on the day you changed this is the change, not the market.
+  Changing the default changes every prompt that has not overridden it, including historically. Past data is not rewritten, but from the next run your numbers are averaged over a different set of platforms. A step in a trend line on the day you changed this is the change, not the market.
 </Warning>

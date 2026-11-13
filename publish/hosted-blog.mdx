@@ -9,7 +9,7 @@ The hosted blog is somewhere to publish without waiting on a CMS project. Articl
 
 Enable it from workspace settings → **Blog**, with a title. Surfaced provisions a default hostname and the blog is live.
 
-Enabling is idempotent — doing it twice returns the site you already have — and it has to be done before any article can be published.
+Enabling is idempotent: doing it twice returns the site you already have. It has to be done before any article can be published.
 
 <Note>
   The hosted blog is not available on every workspace or every environment. If the Blog section is missing from settings, it has not been enabled for your workspace.
@@ -17,17 +17,17 @@ Enabling is idempotent — doing it twice returns the site you already have — 
 
 ## Your own domain
 
-You can serve the blog from a subdomain of your own — `blog.yourcompany.com` — rather than the default hostname. Subdomains only; an apex domain is not supported.
+You can serve the blog from a subdomain of your own, `blog.yourcompany.com`, instead of the default hostname. Subdomains only; an apex domain is not supported.
 
 That is worth doing for one reason beyond appearances: a citation only counts toward your [citation rate](/metrics/citation-rate) if the domain is yours. Content on a Surfaced hostname is credited to a Surfaced hostname.
 
-Add the domain under settings → Blog → Domains. You are given exactly two records to create — a CNAME, and a TXT verification record where one is needed. Never an A record. Surfaced then checks in the background; you can also check on demand, once a minute. Verification gives up after 72 hours, so a typo sits there failing rather than silently retrying forever.
+Add the domain under settings → Blog → Domains. You are given exactly two records to create: a CNAME, and a TXT verification record where one is needed. Never an A record. Surfaced then checks in the background, and you can also check on demand, once a minute. Verification gives up after 72 hours, so a typo sits there failing rather than silently retrying forever.
 
 Up to five domains per workspace.
 
 If you use a separate domain, add it to **Owned domains** in [workspace settings](/set-up/workspace) as well, or the citations it earns will not be counted as yours. These are two different lists and both matter.
 
-Serving the blog under a path on your main site — `yourcompany.com/blog` — is also supported, through your own proxy, with a verification file to prove the path is yours.
+Serving the blog under a path on your main site, `yourcompany.com/blog`, is also supported, through your own proxy, with a verification file to prove the path is yours.
 
 ## Styling
 
@@ -35,13 +35,13 @@ Settings cover the title, tagline, logo, accent colour, a choice of three themes
 
 CSS is capped and sanitised on save, and anything removed is listed back to you rather than silently dropped.
 
-Removing the "powered by" badge and using custom CSS both require a plan that includes white-labelling; without it the request is refused rather than quietly ignored.
+Removing the "powered by" badge and using custom CSS both require a plan that includes white-labelling. Without it the request is refused rather than quietly ignored.
 
 ## What is generated for you
 
 Enabling the blog also produces, with no further action: a sitemap, an RSS feed, `robots.txt`, `llms.txt`, social preview images, structured data, language alternates, and Markdown versions of each post for AI agents to read.
 
-That last one is the point of the exercise. The blog exists to be quoted.
+The Markdown versions are there so the blog can be quoted by the assistants you are tracking, which is the reason to publish on it at all.
 
 ## Publishing and unpublishing
 
@@ -63,6 +63,6 @@ No scheduling or editorial calendar. No per-post meta overrides, no author bylin
 
 ## When not to use it
 
-If you already have a CMS your team publishes into, use it. The hosted blog is for teams who would otherwise not ship — a page live this week on a Surfaced hostname is worth more than a page that waits a quarter for a CMS ticket.
+If you already have a CMS your team publishes into, use it. The hosted blog is for teams who would otherwise not ship, where a page live this week on a Surfaced hostname beats a page that waits a quarter for a CMS ticket.
 
-The one thing to avoid is splitting a content programme across both without deciding which is canonical. Two versions of the same article on two domains compete with each other for the citation.
+Avoid splitting a content programme across both without deciding which is canonical. Two versions of the same article on two domains compete with each other for the citation.

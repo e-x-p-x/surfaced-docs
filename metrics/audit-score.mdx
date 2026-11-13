@@ -43,14 +43,14 @@ The score card at the top of [Audit report](/insights/audit-report), with its th
 
 ## Three things that surprise people
 
-**The colour is not keyed to the number.** A sub-score is coloured by whether it contains a critical failure, not by how high it is. A 68 that hides one critical check is shown in red on purpose, because an amber "68, fine" is exactly the reading that leaves a site unreadable to assistants for another month.
+**The colour is not keyed to the number.** A sub-score is coloured by whether it contains a critical failure, not by how high it is. A 68 that hides one critical check is shown in red on purpose, because an amber "68, fine" is the reading that leaves a site unreadable to assistants for another month.
 
 **The score only covers the pages that were scanned.** The audit reads your homepage and your priority pages, not your whole site. It is a sample, and a good score on five pages is not a clean bill of health for five hundred.
 
-**The score can move when your site has not changed.** Adding a new category of checks re-weights the total, so a release that teaches the audit something new will shift every score slightly. That is deliberate — the alternative is never improving the measure — but it means a step change on a day you shipped nothing is worth checking against the [changelog](/changelog) before investigating your site.
+**The score can move when your site has not changed.** Adding a new category of checks re-weights the total, so a release that teaches the audit something new will shift every score slightly. That is deliberate, since the alternative is never improving the measure. It does mean a step change on a day you shipped nothing is worth checking against the [changelog](/changelog) before you investigate your site.
 
 ## What it is not
 
-**Not an SEO score.** There is overlap, but the checks are chosen for whether a language model can use the page, which is not the same question as whether a search engine will rank it. "Link authority" here means your internal linking; no backlink data is involved.
+**Not an SEO score.** There is overlap, but the checks are chosen for whether a language model can use the page, which is a different question from whether a search engine will rank it. "Link authority" here means your internal linking; no backlink data is involved.
 
-**Not live.** The audit reruns on an explicit re-check — with a few minutes' cooldown — or on the nightly scrape. The number you are looking at is from the last audit, and the header says when that was.
+**Not live.** The audit reruns on an explicit re-check, with a few minutes' cooldown, or on the nightly scrape. The number you are looking at is from the last audit, and the header says when that was.

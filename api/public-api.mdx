@@ -9,7 +9,7 @@ The Surfaced API gives programmatic access to everything the app shows you: anal
 https://www.getsurfaced.ai/api/v1
 ```
 
-The full reference on the pages beside this one is generated from the live specification, so it cannot drift from what the API actually accepts.
+The full reference on the pages beside this one is generated from the live specification, so it cannot drift from what the API accepts.
 
 ## Authentication
 
@@ -23,7 +23,7 @@ curl https://www.getsurfaced.ai/api/v1/me \
 Create and revoke keys in the app under **Settings → Account → API keys**. A key carries your own access: it can reach the workspaces you are a member of and do what your role permits, so a viewer's key cannot change a prompt.
 
 <Warning>
-  A key is shown once, at creation. Treat it as a password — out of source control, out of client-side code, and revoked rather than reused when someone leaves.
+  A key is shown once, at creation. Treat it as a password: out of source control, out of client-side code, and revoked rather than reused when someone leaves.
 </Warning>
 
 ## Start with `/me`
@@ -61,8 +61,8 @@ Rather than polling, you can register a webhook at `/webhooks` and be told when 
 
 ## Rate limits and errors
 
-Errors come back as JSON with a machine-readable code and a human-readable message. Two worth handling explicitly: `402` when an action would exceed your plan's allowance — see [Billing and usage](/account/billing-and-usage) — and `403` when the key's role cannot do what you asked.
+Errors come back as JSON with a machine-readable code and a human-readable message. Two worth handling explicitly: `402` when an action would exceed your plan's allowance (see [Billing and usage](/account/billing-and-usage)), and `403` when the key's role cannot do what you asked.
 
 ## Using it from an AI assistant
 
-There is an MCP server, so Claude, Cursor or VS Code can call Surfaced without you writing a client. It is the fastest way to ask questions of your own data ad hoc, and it uses the same keys and the same permissions as the API.
+There is an MCP server, so Claude, Cursor or VS Code can call Surfaced without you writing a client. It uses the same keys and the same permissions as the API, and it is the fastest way to ask questions of your own data ad hoc.

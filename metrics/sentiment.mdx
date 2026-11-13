@@ -13,7 +13,7 @@ How favourably the AI answers describe your brand, averaged into a single score 
 | Neutral | 40–60 | Mentioned factually, or the model says it does not know you. |
 | Negative | below 40 | Criticised, or compared unfavourably. |
 
-A model saying "I'm not familiar with that company" is scored neutral, not negative. Not knowing you is an absence of information, not a bad opinion — and treating it as negative would make an unknown brand look disliked.
+A model saying "I'm not familiar with that company" is scored neutral. Not knowing you is an absence of information rather than a bad opinion, and scoring it as negative would make an unknown brand look disliked.
 
 ## How it is calculated
 
@@ -25,7 +25,7 @@ sentiment = mention-weighted average of the per-response sentiment scores
 
 Google Search and Google News are excluded from the average. They return ranked links rather than a written answer, so there is no tone to read, and including them would drag every score toward the middle.
 
-The distribution beneath the score — the positive, neutral and negative percentages — is counted only over answers that actually mention your brand. The headline average is not filtered that way, so the two are computed over slightly different populations and will not reconcile exactly.
+The distribution beneath the score (the positive, neutral and negative percentages) is counted only over answers that mention your brand. The headline average is not filtered that way, so the two are computed over slightly different populations and will not reconcile exactly.
 
 ## Worked example
 
@@ -36,7 +36,7 @@ From the [public demo](https://www.getsurfaced.ai/demo/insights/analytics?embed=
 - Negative: **8%**
 - Sentiment score: **64**
 
-Those two profiles score about the same and mean very different things:
+Two different profiles can land on the same score:
 
 | | Profile A | Profile B |
 | --- | --- | --- |
@@ -45,11 +45,11 @@ Those two profiles score about the same and mean very different things:
 | Negative | 8% | 6% |
 | Score | ~64 | ~62 |
 
-A is a brand being recommended with the occasional caveat. B is a brand being listed without enthusiasm. The same number, two different problems. Always read the breakdown, not just the score.
+A is a brand being recommended with the occasional caveat. B is a brand being listed without enthusiasm. Read the breakdown as well as the score.
 
 ## Where to find it
 
-The fifth KPI card on [Analytics](/insights/analytics), with a trend line and a per-platform chart. A platform that is markedly more negative than the others is usually reading one source that the others are not — [Sources](/insights/sources), filtered to that platform, will show which.
+The fifth KPI card on [Analytics](/insights/analytics), with a trend line and a per-platform chart. A platform that is markedly more negative than the others is usually reading one source that the others are not, and [Sources](/insights/sources) filtered to that platform will show which.
 
 The trend line is smoothed over three days rather than plotting each day's raw average, so a single bad day shows as a dip rather than a cliff. Read it for direction, and the card for the period's figure.
 
@@ -57,10 +57,10 @@ The trend line is smoothed over three days rather than plotting each day's raw a
 
 **Not a measure of how often you are criticised.** It only looks at answers that mention you. A brand that is almost never mentioned can sit at 80.
 
-**Not an opinion poll.** It describes how models write about you, which is downstream of what they read. The fix for negative sentiment is usually a source, not a tone.
+**Not an opinion poll.** It describes how models write about you, which is downstream of what they read. The fix for negative sentiment is usually a better source rather than a change of tone.
 
 **Not stable on a small base.** With twenty mentioning answers, two negative ones move the score several points.
 
 <Warning>
-  Sentiment is scored by a language model reading the answer. It catches explicit framing — "expensive", "best for", "limited" — reliably, and irony and comparative hedging less so. Treat a large unexplained swing as a prompt to read the answers, which the per-prompt detail panel on [Prompts](/insights/prompts) lets you do.
+  Sentiment is scored by a language model reading the answer. It catches explicit framing ("expensive", "best for", "limited") reliably, and irony and comparative hedging less so. Treat a large unexplained swing as a prompt to read the answers, which the per-prompt detail panel on [Prompts](/insights/prompts) lets you do.
 </Warning>

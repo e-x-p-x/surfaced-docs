@@ -5,7 +5,7 @@ description: "The share of tracked AI answers that name or link your brand."
 
 ## What it means
 
-The percentage of AI answers in the period where your brand was named in the text **or** linked to. It is the broadest of the five metrics: it asks whether you were present at all, not where, not how, and not whether the reader was told anything flattering.
+The percentage of AI answers in the period where your brand was named in the text **or** linked to. It is the broadest of the five metrics. It asks whether you were present at all, not where, not how, and not whether the reader was told anything flattering.
 
 ## How it is calculated
 
@@ -13,11 +13,11 @@ The percentage of AI answers in the period where your brand was named in the tex
 brand visibility = responses mentioning your brand ÷ total responses collected
 ```
 
-A response counts once whether it names you, links to you, or both. The two signals are merged deliberately — an answer that writes "Surfaced" and an answer that carries an inline link to `getsurfaced.ai` are both an appearance — and merged without double-counting, so the figure will never equal "mentions plus links".
+A response counts once whether it names you, links to you, or both. The two signals are merged deliberately, since an answer that writes "Surfaced" and an answer that carries an inline link to `getsurfaced.ai` are both an appearance. They are merged without double-counting, so the figure will never equal "mentions plus links".
 
 The denominator is every **analysable** answer in the window: one that came back with text, or that the analysis could read. Empty and failed responses are in neither half of the fraction, so a bad run shrinks the sample rather than depressing the percentage.
 
-One case is deliberately excluded from the numerator: an answer that cites a page on your domain without naming you in the text and without an inline link. That is a citation, not an appearance, and it is counted on [Sources](/insights/sources) instead.
+One case is deliberately excluded from the numerator: an answer that cites a page on your domain without naming you in the text and without an inline link. That is a citation rather than an appearance, and it is counted on [Sources](/insights/sources) instead.
 
 ## Worked example
 
@@ -27,7 +27,7 @@ From the [public demo](https://www.getsurfaced.ai/demo/insights/analytics?embed=
 - Responses naming or linking the brand: **1,006**
 - Brand visibility: 1,006 ÷ 2,140 = **47.0%**
 
-The card's subtitle spells the fraction out — "1006 mentions in 2140 responses" — so you never have to take the percentage on trust.
+The card's subtitle spells the fraction out, "1006 mentions in 2140 responses", so you never have to take the percentage on trust.
 
 ## Where to find it
 
@@ -37,12 +37,12 @@ The first KPI card on [Analytics](/insights/analytics), with a trend chart below
 
 **Not a share.** Two brands can both be named in the same answer, so visibility across every brand in your market sums to well over 100%. The metric that is a share is [share of voice](/metrics/share-of-voice).
 
-**Not a ranking.** Being named last in a list of nine counts exactly the same as being the only recommendation. [Average position](/metrics/average-position) is the one that separates those.
+**Not a ranking.** Being named last in a list of nine counts the same as being the only recommendation. [Average position](/metrics/average-position) is the one that separates those.
 
 **Not an endorsement.** Being named as the expensive option is an appearance. [Sentiment](/metrics/sentiment) is what tells you which kind.
 
 **Not comparable across different prompt sets.** Visibility is measured over the prompts you chose. Adding ten prompts about a category you have no content for will lower it without anything having got worse.
 
 <Warning>
-  Brand visibility defaults to **unbranded** prompts, not all of them. On a workspace where that control is shown, the unfiltered figure is typically far lower than the blended one — because prompts that contain your own brand name almost always return it. [Periods and filters](/metrics/periods-and-filters) explains what you are looking at by default.
+  Brand visibility defaults to **unbranded** prompts rather than all of them. On a workspace where that control is shown, the unfiltered figure is typically far lower than the blended one, because prompts containing your own brand name almost always return it. [Periods and filters](/metrics/periods-and-filters) explains what you are looking at by default.
 </Warning>
