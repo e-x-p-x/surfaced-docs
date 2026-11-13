@@ -178,19 +178,19 @@
         "items": [
           {
             "label": "Quickstart",
-            "href": "https://docs.getsurfaced.ai/quickstart"
+            "href": "/quickstart"
           },
           {
             "label": "Metrics",
-            "href": "https://docs.getsurfaced.ai/metrics/overview"
+            "href": "/metrics/overview"
           },
           {
             "label": "Troubleshooting",
-            "href": "https://docs.getsurfaced.ai/troubleshooting/faq"
+            "href": "/troubleshooting/faq"
           },
           {
             "label": "Changelog",
-            "href": "https://docs.getsurfaced.ai/changelog"
+            "href": "/changelog"
           }
         ]
       }
