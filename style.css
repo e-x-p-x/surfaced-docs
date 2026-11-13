@@ -27,12 +27,17 @@
  *
  * Mintlify's light theme is white. The brand ground is cream, and the cards,
  * code blocks and tables stay white on top of it — the same relationship the
- * marketing site has. Set on both html and body: the page background is
- * painted by whichever of the two has one, and Mintlify sets neither.
+ * marketing site has.
+ *
+ * `html.light`, not a bare `html`. Mintlify paints the page on the theme class
+ * it puts on the root element, so a plain `html { background }` here loses on
+ * specificity (0,0,1 against 0,1,1) and the page stayed white. `!important`
+ * on top of that, because the theme rule is generated and may gain a selector.
  * ------------------------------------------------------------------------ */
-html,
-body {
-  background-color: var(--surfaced-ground);
+html.light,
+html.light body,
+:root.light {
+  background-color: var(--surfaced-ground) !important;
 }
 
 /* ---------------------------------------------------------------------------
