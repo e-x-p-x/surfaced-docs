@@ -84,7 +84,15 @@
           },
           {
             "group": "Content",
-            "pages": ["content/briefs", "content/articles"]
+            "pages": [
+              "content/briefs",
+              "content/articles",
+              "content/content-agent",
+              "content/content-engine",
+              "content/knowledge",
+              "content/business-profile",
+              "content/product-catalogue"
+            ]
           },
           {
             "group": "Publish",

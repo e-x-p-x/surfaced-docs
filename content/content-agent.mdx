@@ -1,0 +1,50 @@
+---
+title: "Content Agent"
+description: "The agent that watches for content opportunities, and what it is and is not allowed to do on its own."
+---
+
+Content Agent watches your results for work worth doing and prepares it. It is **off by default**, and in its normal setting it cannot publish anything.
+
+Find it under Content → **Content Agent**.
+
+## Three states, not two
+
+| State | What runs |
+| --- | --- |
+| **Off, watching** | The observer only. It records opportunities and counts them, and makes no model calls and no spend. You will see a line like "Content Agent spotted 12 opportunities — turn it on to prepare them". |
+| **On** | Planning, approvals, execution and the notification emails. |
+| **Off, stopped** | Nothing at all, not even the observer. |
+
+"Off, watching" is the default for a workspace that has never configured it. That is deliberate: you get the count of what it *would* work on before you let it do anything.
+
+Turning it on resumes from the settings you last saved.
+
+## What it may do without asking
+
+| Mode | What it may do |
+| --- | --- |
+| **Wait for approval** (default) | Observes and prepares. Every action waits for an explicit approval before any generation spend. Nothing publishes. |
+| **Draft** | Lower-risk actions may run inside the limits you saved, without approving each one. Nothing publishes. |
+| **Publish pilot** | An experimental CMS handoff, enabled per workspace. Checked content can become a hidden Shopify draft. |
+
+<Note>
+  In both of the first two modes, nothing is published. The furthest Content Agent goes on its own is a draft that a person still has to review and publish.
+</Note>
+
+## Who can turn it on
+
+Owners and managers, and nobody else. Editors can act on individual pieces of work while it is on, but cannot switch it on or off.
+
+Saving the settings form never flips the switch. If it was off, it stays off; if it was on, it stays on. The one exception is the first-time **Activate Content Agent**, which is an owner or manager opting in.
+
+## Why it sometimes goes quiet while switched on
+
+Planning pauses for a workspace where no member has signed in for 21 days. The observer keeps recording, so nothing is lost, but no new work is prepared until someone comes back. You are not shown this, so if a long-idle workspace looks like it has stopped producing work, that is usually the reason.
+
+## Where its work turns up
+
+Prepared work arrives in [Actions](/improve/actions) like anything else, with the source it came from. Approving an item is what releases it to be generated.
+
+## When to switch it on
+
+Leave it watching for a week first. The count it reports is a free read on how much work it would create, and it costs nothing. If that number is one you would actually work through, turn it on in the default mode and approve the first few by hand before loosening anything.

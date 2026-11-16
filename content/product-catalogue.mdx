@@ -1,0 +1,52 @@
+---
+title: "Product catalogue"
+description: "The product feed Surfaced reads, how fresh it is, and how your products shape the gaps you are shown."
+---
+
+Where you sell products, Surfaced reads your product feed so that gap analysis and generated content can talk about what you actually sell.
+
+Find it under Content → Knowledge → **Product catalogue**.
+
+Detection is automatic. Nothing on this page needs doing unless something needs attention, which is why a healthy workspace sees very little here.
+
+## The three blocks
+
+**Feed** — the platform, the feed URL, how many products were found, when it last synced, and a freshness badge.
+
+**Products** — what was imported, grouped into expandable categories with brand chips and a search box, 50 rows at a time.
+
+**How it's used** — how many gaps in your most recent analysis relate to your catalogue, broken down by relevance. Each row links through to [Gap trends](/insights/gap-trends) filtered to that set.
+
+## Freshness
+
+| Badge | Last sync |
+| --- | --- |
+| Fresh | under 20 days |
+| Due | 20 to 30 days |
+| Stale | over 30 days |
+| Never | no successful sync yet |
+
+**Sync now** is available to editors and above, once an hour.
+
+A collapsed **Recent syncs** section lists the last five attempts with their date, what triggered them, the outcome and the product count. Editors and above only.
+
+## What the states mean
+
+| State | What it means |
+| --- | --- |
+| Nothing shown, or "pending" | Surfaced checks on its own. There is nothing to do. |
+| Not a storefront | The domain does not sell products. Gap suggestions fall back to your [business profile](/content/business-profile) alone. |
+| Unsupported platform | The platform was recognised and cannot be read. There is no retry, because re-probing will not change the answer. |
+| Blocked | Something stopped the check. **Retry check** re-runs detection. |
+| Detected | Working. The platform, product count and freshness are shown. |
+| Couldn't read your catalogue settings | The settings themselves failed to load. Refresh. This is not the same as "no catalogue". |
+
+That last distinction is deliberate. A failed read used to look identical to "you have no catalogue", which told people everything was fine when it was not.
+
+## Words mean one thing each
+
+This page says products, categories, brands and product feed. [Website content](/content/knowledge) says pages. "Catalogue" therefore only ever means products, and never the list of pages on your site.
+
+## If an error message looks vague
+
+Sync failures are shown in plain language rather than the raw connector message. The underlying string is kept in the logs for support. If the plain-language line does not tell you enough to act, that is the moment to quote the feed URL and the time to support rather than guess.

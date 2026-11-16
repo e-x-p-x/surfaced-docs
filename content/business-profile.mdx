@@ -1,0 +1,57 @@
+---
+title: "Business profile"
+description: "What Surfaced believes your business is, where that belief came from, and the two name lists that decide what counts as a mention of you."
+---
+
+The business profile is what Surfaced thinks you do. It shapes the prompts you are offered and the content that gets generated, and two of its fields decide what counts as a mention of your brand at all.
+
+Find it under Content → Knowledge → **Business profile**.
+
+## What is on it
+
+Your offerings and activities, audience, value proposition, business model, industry and sub-industry, the markets you operate in, your headquarters city, and your keywords.
+
+Keywords are shown per language and are read-only on this screen, so that a multi-language set is not flattened into one list.
+
+## Where each field came from
+
+Every field is labelled with its origin, because "we read this off your site" and "a model guessed" deserve different amounts of trust:
+
+| Label | Meaning |
+| --- | --- |
+| From your website | Read from your site. |
+| From research | Found in external research. |
+| You set this | Typed by someone on your team. |
+| Estimated | Inferred. A model summary with no supporting evidence counts as estimated even when the model did read your website. |
+
+A field nobody has filled says **Not inferred yet**. A field someone deliberately emptied says **Left blank**, which is a different thing and is kept as a decision.
+
+## Correcting it
+
+Editing is open to owners, managers and editors. Three fields are stricter — target market, operating markets and headquarters city need owner or manager, because they feed the rest of the product.
+
+When you correct a field, Surfaced keeps what the website said. The screen then shows you where your version and the website's version disagree, and offers **Use website value** to go back. Re-reading your website later preserves your corrections rather than overwriting them.
+
+<Note>
+  If someone else saved a change while you had the page open, your save is refused and you are asked to refresh. It will not overwrite the newer version.
+</Note>
+
+## The two name lists
+
+These matter more than the rest of the page, because they change your numbers.
+
+**Other names** are aliases: the spellings assistants actually use for you. If you are written as "Acme Corp" as often as "Acme Corporation", both belong here. Each alias is treated as a mention of you.
+
+**Not us** are names that look like yours and are not. A product with a common word in its name, or a same-named company in another industry, goes here. Those names are masked out of mention matching, named in the analysis prompt, and kept off your brand row when competitors are resolved.
+
+Domains are never masked. Only names are.
+
+The two lists are cross-checked when you save: a Not-us name cannot be your brand name or one of your aliases, and an alias cannot also be a Not-us name.
+
+<Warning>
+  Both lists apply from the **next tracking run**, because a run uses the profile as it was frozen when the run started. Saving also queues a recompute so past runs follow the edit, but the figure you are looking at right now will not move the moment you hit save.
+</Warning>
+
+## Why it is worth ten minutes
+
+An alias you have not listed is a mention that was never counted, and it lowers [brand visibility](/metrics/brand-visibility) for a reason nothing on the screen will tell you. A Not-us name you have not excluded does the opposite and flatters you. Both are silent, and both are fixed here.
