@@ -204,3 +204,21 @@ footer a:has(> svg):not([href*="mintlify"]):hover > svg {
 footer a:has(> svg):not([href*="mintlify"]):first-child {
   margin-left: -8px;
 }
+
+/*
+ * Below `md`, Mintlify puts the wordmark and the whole social row on ONE line.
+ * Six 40px targets plus 16px gaps is 312px of that line, which crowds the
+ * wordmark on a phone and reads as a broken footer. Narrower boxes and a
+ * tighter gap there: 34px still clears the 24px minimum, and the group drops
+ * to ~224px so the wordmark keeps its space.
+ */
+@media (max-width: 767px) {
+  footer div:has(> a > svg) {
+    gap: 0.25rem;
+  }
+
+  footer a:has(> svg):not([href*="mintlify"]) {
+    width: 34px;
+    height: 34px;
+  }
+}
