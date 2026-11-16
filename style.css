@@ -222,3 +222,26 @@ footer a:has(> svg):not([href*="mintlify"]):first-child {
     height: 34px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Footer column links
+ *
+ * These navigate correctly — every one was clicked in a real browser — but
+ * they are static grey with no hover state and no underline, so there is no
+ * feedback that they are links at all. A link that gives nothing back on
+ * hover is indistinguishable from a dead one.
+ *
+ * Ink on hover with an underline, and a pointer cursor, which is the cheapest
+ * way to make "working" visible.
+ * ------------------------------------------------------------------------ */
+footer a:not(:has(> svg)):not([href*="mintlify"]) {
+  cursor: pointer;
+  transition: color 120ms ease;
+  text-underline-offset: 3px;
+}
+
+footer a:not(:has(> svg)):not([href*="mintlify"]):hover {
+  color: var(--surfaced-ink) !important;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+}
