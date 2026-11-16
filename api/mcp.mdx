@@ -1,0 +1,97 @@
+---
+title: "MCP server"
+description: "Connect Claude, Cursor or VS Code to your workspace so an assistant can read your results and do work in Surfaced."
+---
+
+Surfaced runs an MCP server, so an AI assistant can query your workspace and act in it without you writing a client.
+
+```
+https://www.getsurfaced.ai/mcp
+```
+
+The server is named `surfaced`. It speaks **streamable HTTP only** — there is no SSE endpoint, so a client configured for SSE will not connect.
+
+## Connect from the app
+
+The quickest route is **Settings → Account → Connect an AI assistant**, also reachable from "Connect AI assistant" in the avatar menu and from the AI assistants tile on Settings → Integrations.
+
+There is a card per client. **Cursor** and **VS Code** connect in one click. **Claude** and **Claude Code** have their own cards, and there is a card for anything else that speaks MCP.
+
+Connecting this way signs you in with OAuth and **creates no API key**.
+
+## Connect by hand
+
+<CodeGroup>
+
+```bash Claude Code (OAuth)
+claude mcp add --transport http surfaced https://www.getsurfaced.ai/mcp
+```
+
+```bash Claude Code (API key)
+claude mcp add --transport http surfaced https://www.getsurfaced.ai/mcp \
+  --header "Authorization: Bearer sk_live_..."
+```
+
+```json Cursor (~/.cursor/mcp.json)
+{
+  "mcpServers": {
+    "surfaced": {
+      "url": "https://www.getsurfaced.ai/mcp"
+    }
+  }
+}
+```
+
+</CodeGroup>
+
+Omit the header and you are asked to sign in. Supply one and the server uses that [API key](/api/public-api) instead.
+
+## What it can reach
+
+Every tool is a route on the [public API](/api/public-api), run through the same middleware. Nothing about permissions, plans or rate limits is re-implemented, so an assistant can do exactly what you can do and no more. A viewer's connection cannot change a prompt.
+
+| Area | Tools |
+| --- | --- |
+| Account | `list_workspaces` |
+| Workspace | `get_workspace`, `update_workspace` |
+| Insights | `get_analytics_summary`, `get_analytics_trend`, `list_prompts`, `list_prompt_searches`, `list_sources`, `list_competitors`, `list_tracking_runs`, `start_tracking_run`, `get_audit_report` |
+| Improve | `list_actions`, `get_action`, `accept_action`, `write_brief_for_action`, `complete_action`, `decline_action` |
+| Content | `list_briefs`, `get_brief`, `create_briefs`, `start_brief_run`, `retry_brief_run`, `get_article`, `list_articles`, `publish_article` |
+| Content Agent | `get_content_agent` |
+| Knowledge | `search_knowledge` |
+
+The tool list the server advertises is generated from the API manifest, so it cannot drift from what the API actually does.
+
+<Warning>
+  Four tools start work that costs you allowance: `start_tracking_run`, `start_brief_run`, `retry_brief_run` and `write_brief_for_action`. An assistant asked to "look into" something can reach for these. Their descriptions say they start paid work, but the decision to let an assistant run them is yours.
+</Warning>
+
+## Choosing a workspace
+
+Workspace-scoped tools take an optional `workspaceId`. Leave it out and the call uses your only workspace.
+
+If you belong to several and do not name one, the call fails with `WORKSPACE_REQUIRED` and returns the list to choose from. Telling the assistant which workspace to use once, at the start, avoids this.
+
+## Rate limits
+
+The same limits as the API. An OAuth connection gets its own allowance per app, so connecting a second assistant does not eat the first one's requests.
+
+Your plan's monthly quotas — tracked responses, articles — are per workspace and are **not** multiplied by the number of connected apps. Two assistants share one monthly allowance.
+
+`apiAccess` has to be on for your plan, or workspace calls return `402 BILLING_LIMIT`.
+
+## Reviewing and revoking
+
+Connected apps are listed under the connect screen, each with **Revoke**. Revoking takes effect for that app's grant.
+
+An OAuth token is not an app session: it reaches the API and nothing else.
+
+## If it will not connect
+
+**"No tools"** usually means the client is configured for SSE. This server is streamable HTTP only.
+
+**Every call returns `WORKSPACE_REQUIRED`.** You are in more than one workspace; name the one you want.
+
+**`402 BILLING_LIMIT`.** Your plan does not include API access. See [Billing and usage](/account/billing-and-usage).
+
+**`403`.** Your role cannot do what was asked. Roles apply to assistants exactly as they do to you — see [Members and roles](/account/members-and-roles).

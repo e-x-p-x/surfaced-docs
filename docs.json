@@ -80,7 +80,9 @@
           },
           {
             "group": "Improve",
-            "pages": ["improve/actions"]
+            "pages": [
+              "improve/actions"
+            ]
           },
           {
             "group": "Content",
@@ -96,7 +98,10 @@
           },
           {
             "group": "Publish",
-            "pages": ["publish/hosted-blog", "publish/integrations"]
+            "pages": [
+              "publish/hosted-blog",
+              "publish/integrations"
+            ]
           },
           {
             "group": "Account",
@@ -108,7 +113,10 @@
           },
           {
             "group": "Troubleshooting",
-            "pages": ["troubleshooting/faq", "troubleshooting/common-issues"]
+            "pages": [
+              "troubleshooting/faq",
+              "troubleshooting/common-issues"
+            ]
           }
         ]
       },
@@ -116,20 +124,32 @@
         "tab": "API",
         "groups": [
           {
+            "group": "Get started",
+            "pages": [
+              "api/mcp"
+            ]
+          },
+          {
             "group": "Public API",
             "openapi": "https://www.getsurfaced.ai/api/v1/openapi.json",
-            "pages": ["api/public-api"]
+            "pages": [
+              "api/public-api"
+            ]
           },
           {
             "group": "Partner API",
             "openapi": "https://www.getsurfaced.ai/api/partner/openapi.json",
-            "pages": ["api/partner-api"]
+            "pages": [
+              "api/partner-api"
+            ]
           }
         ]
       },
       {
         "tab": "Changelog",
-        "pages": ["changelog"]
+        "pages": [
+          "changelog"
+        ]
       }
     ]
   },
