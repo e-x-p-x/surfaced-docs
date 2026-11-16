@@ -240,45 +240,34 @@ footer a:has(> svg):not([href*="mintlify"]):first-child {
  * is 20px tall against WCAG 2.5.8's 24px floor. Clicking it does nothing, which
  * is indistinguishable from a broken link.
  *
- * The fix is hit area, not colour: pad the anchor out to 44px of height, pull
- * it back by the same padding so the row stays optically aligned with the
- * content edge, and grow the chevron to something a cursor can land on.
+ * The fix is hit area only, and it must be INVISIBLE. An earlier version also
+ * scaled the chevron to 12px and tinted the row on hover; scaling a 3-unit
+ * viewBox with a 2-unit stroke turns the arrow into a fat grey blob, and it
+ * was rejected on sight. Do not restyle the arrow — Mintlify's is the brand's.
+ *
+ * So: padding around the anchor, pulled back by the same amount with negative
+ * margins so nothing moves, which leaves the painted arrow well inside the
+ * clickable box. And a stacking context above the content, so no neighbouring
+ * layer — the floating "Ask a question" bar sits directly below this row — can
+ * take a click aimed at the link.
  * ------------------------------------------------------------------------ */
-#pagination a {
-  padding: 0.75rem 0.625rem;
-  min-height: 44px;
-  border-radius: 10px;
-  transition:
-    background-color 120ms ease,
-    color 120ms ease;
+#pagination {
+  position: relative;
+  z-index: 20;
 }
 
-/* Undo the padding at the row's outer edges so nothing shifts visually. */
+#pagination a {
+  padding: 0.75rem 0.625rem;
+  margin-top: -0.75rem;
+  margin-bottom: -0.75rem;
+}
+
 #pagination a[data-component-part="pagination-next"] {
   margin-right: -0.625rem;
 }
 
 #pagination a[data-component-part="pagination-previous"] {
   margin-left: -0.625rem;
-}
-
-#pagination a:hover {
-  background-color: rgb(40 3 15 / 0.04);
-  color: var(--surfaced-ink) !important;
-}
-
-/*
- * The chevron: 6px tall and 3px wide is not a control. Three times the size is
- * still small and now sits comfortably inside the padded box, and the stroke
- * bleed no longer matters because there is 10px of padded anchor beyond it.
- */
-#pagination svg[data-component-part="pagination-chevron"] {
-  height: 0.75rem;
-  width: auto;
-}
-
-#pagination a:hover svg[data-component-part="pagination-chevron"] {
-  stroke: var(--surfaced-ink);
 }
 
 /* ---------------------------------------------------------------------------
