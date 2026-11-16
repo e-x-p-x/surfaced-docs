@@ -148,10 +148,14 @@ footer > div {
  *
  * 40×40 target with the glyph centred (WCAG 2.5.8 asks for 24×24 minimum),
  * a rounded hover in brand yellow, and the glyph in ink rather than Tailwind's
- * cool grey. The `:has(svg)` selector picks the icon links without depending
+ * cool grey. The `:has(> svg)` selector picks the icon links without depending
  * on a generated class name, and leaves the text links in the columns alone.
+ *
+ * The Mintlify attribution link is excluded by href: it is a WORDMARK in an
+ * svg, not a glyph, so the 40×40 box squashed it and broke "Powered by
+ * mintlify" onto two lines with the logo gone.
  * ------------------------------------------------------------------------ */
-footer a:has(> svg) {
+footer a:has(> svg):not([href*="mintlify"]) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -163,23 +167,23 @@ footer a:has(> svg) {
     transform 120ms ease;
 }
 
-footer a:has(> svg):hover {
+footer a:has(> svg):not([href*="mintlify"]):hover {
   background-color: var(--surfaced-accent);
   transform: translateY(-1px);
 }
 
 /* The glyph is a mask over a background colour, so this is what recolours it. */
-footer a:has(> svg) > svg {
+footer a:has(> svg):not([href*="mintlify"]) > svg {
   background-color: var(--surfaced-ink) !important;
   opacity: 0.55;
   transition: opacity 120ms ease;
 }
 
-footer a:has(> svg):hover > svg {
+footer a:has(> svg):not([href*="mintlify"]):hover > svg {
   opacity: 1;
 }
 
 /* The row itself: the wider targets need a little less gap to stay a group. */
-footer a:has(> svg):first-child {
+footer a:has(> svg):not([href*="mintlify"]):first-child {
   margin-left: -8px;
 }
