@@ -16,37 +16,51 @@ A gap is something the answers say about you that is wrong, missing or out of da
 | Coverage gap | A whole topic where you are never mentioned. |
 | Sentiment issue | A recurring negative framing. |
 
-## Severity and status
+## Severity
 
-Severity runs **critical → high → medium → low**. Status runs:
+**Critical → High → Medium → Low.**
 
-- **New.** Untouched. Outstanding.
-- **Reviewed.** Someone has looked. Still outstanding.
-- **Actioned.** You recorded that you addressed it. Terminal.
-- **Dismissed.** Explicitly decided against. Terminal, and hidden from the default view.
+## Phase: where a finding is in the work
 
-The filter also offers **Addressed**, which is actioned and dismissed together, so that clicking a card reading "5 of 10 addressed" shows you all five.
+The tabs across the top are phases, and they are the main way the table is sliced. **All findings** shows everything; the rest count what is in each phase.
+
+| Phase | What it means |
+| --- | --- |
+| **To decide** | Nobody has decided what to do about it yet. |
+| **Being addressed** | Work is under way. |
+| **Measuring** | The work is done and Surfaced is waiting to see whether the answers moved. |
+| **Verified** | The answers moved. |
+
+Measuring is the phase people are surprised by. Finishing the work does not finish the finding, because the point was never the work: it was whether the assistants changed what they say. That takes at least one more tracking run, and usually more.
+
+## Disposition: what you decided
+
+Separately from the phase, each finding carries what you decided about it.
+
+| Disposition | What it means |
+| --- | --- |
+| **New** | Untouched. |
+| **Reviewed** | Someone has looked. |
+| **Handled outside Surfaced** | You dealt with it somewhere else and want it off the list. |
+| **Dismissed** | Explicitly decided against. |
 
 <Note>
-  Accepting a brief against a gap does not close it. "Actioned" is a bookkeeping flag you set, not a verification that the answers changed. Whether they changed is what the next tracking run tells you.
+  Accepting a brief against a gap does not close it, and neither does marking it handled. Those record what you decided, not what the assistants now say. Whether anything changed is what the **Measuring** phase is for, and what the next tracking run tells you.
 </Note>
 
-## The cards
+## Findings that need attention
 
-Total gaps, critical, high priority, and progress. All four are clickable filters: clicking one shows exactly the rows it counted.
+A finding can also be flagged for a reason that is not a phase: an approval is required, work is blocked, work failed and needs review, its evidence has gone stale, a measurement is overdue, or there is active work on something already handled or dismissed.
 
-**Progress** counts both terminal states, so dismissing everything reaches 100%. That is intended, since a dismissed gap is a decision you made. It does mean progress measures triage rather than improvement.
+These are the rows worth opening first. A blocked or failed item will sit in **Being addressed** forever otherwise, looking like progress.
 
 ## Locked gaps
 
-A gap found only on platforms your workspace does not track is **locked**: shown as a teaser with a padlock, and excluded from every card, every count and every action on the page.
+A gap found only on platforms your workspace does not track is a **locked finding**: shown as a teaser, and excluded from the counts and from every action on the page.
 
-This is the most confusing thing on the screen. A workspace can be sitting on dozens of outstanding critical gaps while the page reads Critical 0, because none of them were found on a tracked platform. The total card shows "+N locked" when that is the case.
+This is the most confusing thing on the screen. A workspace can be sitting on outstanding critical gaps while the counts read zero, because none of them were found on a platform you track. The page says when locked findings exist.
 
-Two related details:
-
-- Nothing is locked if you track no platforms at all. Locking only begins once at least one is tracked.
-- The "All severity" and "All status" dropdown options count locked gaps; the individual options do not. "All" will not equal the sum of its siblings on a workspace with locked rows.
+Nothing is locked if you track no platforms at all. Locking only begins once at least one is tracked.
 
 ## Running an analysis
 
@@ -56,9 +70,9 @@ A failed run does not wipe your gaps. The page keeps showing the last analysis t
 
 ## Actions
 
-Per row: mark reviewed, mark actioned, dismiss, or accept a suggestion, which creates a brief in [Content](/content/briefs). In bulk: set status, set severity, or export the selected rows to CSV.
+Per row: mark it reviewed, mark it handled outside Surfaced, dismiss it, or accept a suggestion, which creates a brief in [Content](/content/briefs). Findings can also be selected in bulk, updated together and exported.
 
-Locked rows offer none of these.
+Locked findings offer none of these.
 
 ## What "no gaps detected" means
 
