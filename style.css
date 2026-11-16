@@ -224,6 +224,64 @@ footer a:has(> svg):not([href*="mintlify"]):first-child {
 }
 
 /* ---------------------------------------------------------------------------
+ * Next / previous page links
+ *
+ * These are the real "the links at the bottom don't work" bug.
+ *
+ * Mintlify renders the next-page link as an 80×20px anchor holding a label and
+ * a chevron that is literally 3×6 CSS PIXELS (`viewBox="0 0 3 6"` at `h-1.5`).
+ * The path is stroked at width 2 with `overflow-visible`, so the stroke is
+ * painted roughly a pixel OUTSIDE the svg's box on every side. Measured on the
+ * live page: the centre of the chevron hits the link, one pixel past its right
+ * edge hits the <nav>, four pixels past it hits nothing at all.
+ *
+ * So the arrow — the part of the control that says "next page", and the part
+ * anyone aims at — is mostly outside the clickable area, and the whole target
+ * is 20px tall against WCAG 2.5.8's 24px floor. Clicking it does nothing, which
+ * is indistinguishable from a broken link.
+ *
+ * The fix is hit area, not colour: pad the anchor out to 44px of height, pull
+ * it back by the same padding so the row stays optically aligned with the
+ * content edge, and grow the chevron to something a cursor can land on.
+ * ------------------------------------------------------------------------ */
+#pagination a {
+  padding: 0.75rem 0.625rem;
+  min-height: 44px;
+  border-radius: 10px;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+/* Undo the padding at the row's outer edges so nothing shifts visually. */
+#pagination a[data-component-part="pagination-next"] {
+  margin-right: -0.625rem;
+}
+
+#pagination a[data-component-part="pagination-previous"] {
+  margin-left: -0.625rem;
+}
+
+#pagination a:hover {
+  background-color: rgb(40 3 15 / 0.04);
+  color: var(--surfaced-ink) !important;
+}
+
+/*
+ * The chevron: 6px tall and 3px wide is not a control. Three times the size is
+ * still small and now sits comfortably inside the padded box, and the stroke
+ * bleed no longer matters because there is 10px of padded anchor beyond it.
+ */
+#pagination svg[data-component-part="pagination-chevron"] {
+  height: 0.75rem;
+  width: auto;
+}
+
+#pagination a:hover svg[data-component-part="pagination-chevron"] {
+  stroke: var(--surfaced-ink);
+}
+
+/* ---------------------------------------------------------------------------
  * Footer column links
  *
  * These navigate correctly — every one was clicked in a real browser — but
