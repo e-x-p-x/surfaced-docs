@@ -72,9 +72,26 @@ html.light body,
   color: var(--surfaced-ink) !important;
 }
 
+/*
+ * The weight has to be set on the DESCENDANTS, not just the anchor. The label
+ * is a nested `<span class="text-white">`, and Mintlify gives it its own
+ * font-weight, so it computed 400 while the anchor computed 700 and the button
+ * rendered light. Setting it on the anchor alone looks right in devtools and
+ * wrong on screen.
+ *
+ * 800, not 700: Mintlify loads exactly two Geist faces, 400 and 800. There is
+ * no 700 file, so asking for 700 relies on the browser's nearest-face match.
+ * Naming the face that is actually loaded removes the guesswork.
+ */
+#topbar-cta-button a,
+#topbar-cta-button a *,
+.topbar-cta-button a,
+.topbar-cta-button a * {
+  font-weight: 800 !important;
+}
+
 #topbar-cta-button a,
 .topbar-cta-button a {
-  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
