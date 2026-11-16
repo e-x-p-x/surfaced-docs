@@ -224,6 +224,38 @@ footer a:has(> svg):not([href*="mintlify"]):first-child {
 }
 
 /* ---------------------------------------------------------------------------
+ * Defend the article box against a browser extension
+ *
+ * THIS is why "Public API ›" did not click (2026-11-16). Not Mintlify, not
+ * the hit area below — that was a wrong first diagnosis.
+ *
+ * "Screenshot Tool - Screen Capture & Editor" (Chrome Web Store id
+ * edlifbnjlicfpckhgjhflgkeeibhhcii, v1.0.10) injects css/share-modal.css into
+ * EVERY page, and its first rule is a bare global:
+ *
+ *     #content { width: 100%; height: 100%; }
+ *
+ * Mintlify's article body is <div id="content">. With that rule it resolves
+ * to 100% of #content-area, i.e. as tall as the whole column it sits in, so
+ * on /api/mcp it grew from 2,541px to 2,865px. The next/previous row that
+ * follows it is pushed ~320px down, out of the column and into the footer,
+ * and the footer — later in the DOM — paints over it and takes the click.
+ * The link stays visible (that is the screenshot that reported it: "Public
+ * API ›" drawn level with the footer's Blog/Troubleshooting row) and dead.
+ *
+ * Reproduced by loading only that extension into Chromium: the click lands on
+ * a footer div. Every other extension in the reporter's browser was cleared
+ * one by one.
+ *
+ * `!important` because the extension's rule has the same specificity (one
+ * id) and there is no guarantee which sheet comes last. `auto` is exactly what
+ * the box computes without the extension, so for everyone else this is a no-op.
+ * ------------------------------------------------------------------------ */
+#content {
+  height: auto !important;
+}
+
+/* ---------------------------------------------------------------------------
  * Next / previous page links
  *
  * These are the real "the links at the bottom don't work" bug.
