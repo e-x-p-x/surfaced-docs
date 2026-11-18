@@ -5,22 +5,23 @@ description: "The instruction for a piece of content, and the run that turns it 
 
 A brief is what you want written, before it is written. One brief produces one article per market and language you have configured, in a single run.
 
+## The list
+
+Briefs is under **Content** in the sidebar. Tabs split the list: **Needs you** (waiting on a decision or a fix from you), **Planned**, **Writing**, **Suggestions** (briefs proposed from your gaps, to accept or ignore) and **All**. Each row shows the brief, its status, its markets, how much of your content allowance it used, and the next step.
+
 ## The statuses
 
 | Status | What it means |
 | --- | --- |
-| Not started | Saved, nothing generated. Saving a brief never starts generation. |
-| Queued | Waiting for capacity. |
-| Drafting | Being written. |
-| Drafting complete | Every target produced a draft. |
-| Partly drafted | Some targets produced a draft and some did not. |
-| Generation failed | The run ended without producing what it was asked for. |
-| Generation cancelled | Stopped deliberately. |
+| Draft | Saved, nothing generated. Saving a brief never starts generation. |
+| Queued / Writing | Waiting for capacity, or being written. |
+| Ready | Every market produced an article ("All 6 articles are ready"). |
+| Didn't finish | Some or all markets did not produce an article ("2 of 3 ready · 1 didn't finish"), with a next step such as **Change** or **Write it again**. |
 
 A **New work paused** chip appears when drafting has been held, usually because the workspace has used its monthly article allowance.
 
 <Warning>
-  "Drafting complete" means text exists. It does not mean reviewed, and it does not mean published. The page says so permanently in its footer, because this is the step teams skip.
+  "Ready" means text exists. It does not mean reviewed, and it does not mean published. The page says so permanently in its footer, because this is the step teams skip.
 </Warning>
 
 A brief can be edited freely until its run starts. After that it locks: an edit is refused rather than quietly changing what is being written. If you want a variation at that point, create a new brief.
@@ -35,13 +36,13 @@ Editing autosaves. Saving never starts generation.
 
 ## Where briefs come from
 
-**By hand.** The Write article button, for when you know what you want to say.
+**By hand.** The **New Brief** button, for when you know what you want to say.
 
 **In bulk.** One brief per line, or a CSV import that maps your own column headings and hands back a file of anything it could not resolve.
 
 **From a finding.** Accepting a suggestion on [Gap trends](/insights/gap-trends), or **Create brief** on a content finding in [Audit report](/insights/audit-report), fills in the specifics: which page, which issue, what the answer has to cover. This is the path that keeps content work tied to evidence rather than to opinion.
 
-**From the Inbox tab**, where suggestions arrive to be accepted or ignored.
+**From the Suggestions tab**, where suggestions arrive to be accepted or ignored.
 
 ## The run
 
@@ -58,7 +59,7 @@ Starting a run generates one article per target, a target being a market and lan
 
 Targets are independent: one language failing does not stop the others, and the run reports counts per state rather than a single pass or fail.
 
-A run takes **roughly eight to fifteen minutes per language**. While it goes you can watch it: named agents report what they are doing, and the section being written streams in as it is composed. That live text is not saved, so reloading the page shows you the stored draft instead.
+A run usually takes **around 15 minutes**. Languages and markets are written in parallel, so adding one does not add the same time again, but it varies with the length of the article, the research involved and how busy the queue is. While it goes you can watch it: named agents report what they are doing, and the section being written streams in as it is composed. That live text is not saved, so reloading the page shows you the stored draft instead.
 
 If a target already has a live page, you are asked whether to overwrite it or create a new version.
 

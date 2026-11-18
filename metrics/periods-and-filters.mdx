@@ -21,7 +21,7 @@ It matters when you reconcile against another tool. A 1-in-31 difference in the 
 
 ## Your plan floors how far back you can look
 
-Each plan keeps a fixed amount of history. Pick a start date earlier than your plan allows and the range is clamped to the floor, including "everything", which becomes "as far back as your plan goes".
+Each plan keeps a fixed amount of history, counted back from your latest day of data; see the [pricing page](https://www.getsurfaced.ai/pricing) for what yours includes. Pick a start date earlier than your plan allows and the range is clamped to the floor, including "everything", which becomes "as far back as your plan goes".
 
 It also decides what you open on: the default period is the longest of 7, 30 and 90 days that your plan can serve, so a short-history plan opens on "Past 7 days" rather than on an empty month.
 
@@ -42,17 +42,15 @@ Two consequences:
 - **Unclassified prompts are in neither bucket.** A prompt that has not been classified appears only under "All". Switching between branded and unbranded on a workspace with many unclassified prompts will not account for every prompt you have.
 - **Most workspaces never see the control.** It only appears once a workspace has at least one branded prompt. Everywhere else the scope is "All", and a note on the page says so.
 
-## Charts plot at most 30 points
+## Charts and cards cover the same period
 
-Whatever period you pick, a trend chart shows the last 30 data points. A 90-day view does not draw 90 days of line.
+Trend charts draw the whole period you pick, one point per day. The KPI cards above them summarise that same period as a single figure, so a card can sit above a line that moved a lot within the window.
 
-The KPI cards above them do cover the whole period, so the card and the chart beside it are answering slightly different questions.
+## Filtering by platform changes every number
 
-## Filtering by platform changes only some of the numbers
+With an AI-platform filter active, every figure on the page is recalculated from the filtered platforms only: brand visibility, citation rate, share of voice, average position, sentiment and the competitor table.
 
-With an AI-platform filter active, brand visibility and citation rate are recalculated in your browser from the filtered platforms. Share of voice, average position, sentiment and the competitor table keep their unfiltered values.
-
-So a platform-filtered view mixes scopes. Read the two recalculated figures as filtered, and the rest as workspace-wide.
+So a platform-filtered view is a consistent view of those platforms. Compare it with the unfiltered view to see how much one engine moves your overall numbers.
 
 ## Filters that do not move every number
 

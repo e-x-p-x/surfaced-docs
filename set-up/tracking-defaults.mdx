@@ -3,7 +3,7 @@ title: "Tracking defaults"
 description: "Which AI platforms you track, how that drives your monthly response usage, and when to change it."
 ---
 
-Found under the gear in the sidebar footer, on **Setup → Tracking defaults**.
+Found under **Workspace settings** in the sidebar footer, on **Setup → Tracking defaults**.
 
 ## What it sets
 
@@ -11,15 +11,17 @@ Which of the AI platforms Surfaced supports your prompts are asked of. The card 
 
 An individual prompt can override the workspace default where you want one question watched somewhere specific.
 
-Twelve platforms are covered, and two of them behave differently from the rest: Google Search and Google News return ranked links rather than a written answer, so they contribute citations but no sentiment.
+Twelve platforms are supported: ChatGPT, Gemini, Claude, Perplexity, DeepSeek, Grok, Mistral, Google AI Overviews, Google AI Mode, Bing Copilot, Google Search and Google News. The Free plan tracks ChatGPT only; paid plans can track all twelve. See [pricing](https://www.getsurfaced.ai/pricing).
+
+Two of them behave differently from the rest: Google Search and Google News return ranked links rather than a written answer, so they contribute citations but no sentiment.
 
 Changing the default needs the owner or manager role. Everyone else sees the setting with a note that their role cannot change it.
 
 ## The schedule is not yours to set
 
-Tracking runs nightly, at a fixed time in UTC. There is no cadence control, no pause button and no "run now" for a normal member. The controls you do have are the first run during onboarding, and a retry on a run that failed or was cancelled.
+Tracking runs nightly, at a fixed time in UTC. There is one scheduled run per workspace per day, with no cadence control, no pause button and no "run now" button in the app. The controls you do have are the first run during onboarding, and a retry on a run that failed or was cancelled.
 
-That bounds how fast you can see the effect of a change: at most one data point a day, per prompt, per platform.
+That bounds how fast you can see the effect of a change: in practice, one new reading a day per prompt and platform.
 
 ## The forecast is the important part
 
@@ -31,7 +33,7 @@ Your plan includes a monthly allowance of **tracked responses**: one prompt, ask
 
 The arithmetic is worth seeing. Adding a model adds one response per prompt per language per market per run. On a workspace with 30 prompts in 6 languages, one more model is 180 responses a run, so over 5,000 a month.
 
-If the setup exceeds what is left this month, a warning says so and names the number remaining. Reduce prompts, models or markets, or raise the plan.
+If the setup exceeds what is left this month, a warning says so and names the number remaining. Reduce prompts, models or markets, or raise the plan. Allowances per plan are on the [pricing page](https://www.getsurfaced.ai/pricing).
 
 ## Choosing platforms
 

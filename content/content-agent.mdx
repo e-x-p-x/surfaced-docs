@@ -3,9 +3,9 @@ title: "Content Agent"
 description: "The agent that watches for content opportunities, and what it is and is not allowed to do on its own."
 ---
 
-Content Agent watches your results for work worth doing and prepares it. It is **off by default**, and in its normal setting it cannot publish anything.
+Content Agent watches your results for work worth doing and prepares it. It is **off by default**, and it never publishes anything on its own.
 
-Find it under Content → **Content Agent**.
+Find it under **Workspace settings → Content → Content Agent**. The Briefs page also shows its current mode (for example _Content Agent · Ask me first_), with a shortcut to its settings.
 
 ## Three states, not two
 
@@ -21,15 +21,26 @@ Turning it on resumes from the settings you last saved.
 
 ## What it may do without asking
 
+Choose the **Execution depth** in the Content Agent settings:
+
 | Mode | What it may do |
 | --- | --- |
-| **Wait for approval** (default) | Observes and prepares. Every action waits for an explicit approval before any generation spend. Nothing publishes. |
-| **Draft** | Lower-risk actions may run inside the limits you saved, without approving each one. Nothing publishes. |
-| **Publish pilot** | An experimental CMS handoff, enabled per workspace. Checked content can become a hidden Shopify draft. |
+| **Ask me first** (default) | Finds and prepares work, but you review and approve each action before it starts. This is the only mode that can also prepare improvements to existing pages. |
+| **Automatic drafting** | Creates low-risk article drafts on its own, within your limits. Page improvements are off. Nothing goes live automatically. |
+| **Send to CMS** (only where available) | Sends verified drafts to a connected Shopify store as hidden drafts. Shown only when the Shopify handoff is available and a store is connected. |
 
 <Note>
-  In both of the first two modes, nothing is published. The furthest Content Agent goes on its own is a draft that a person still has to review and publish.
+  In every mode, nothing is published by Content Agent. Article drafts stay in Surfaced until a person publishes them through the hosted blog, or copies or exports them to their own website or CMS. Changes to existing pages stay in Surfaced until they are separately synced.
 </Note>
+
+## Limits and scope
+
+- **Content items per week.** A weekly maximum (for example 25). Content Agent spreads its automatic starts evenly within that cap and within your remaining monthly content allowance. Articles and completed page optimizations share the same allowance.
+- **Paid overages.** An option to let Content Agent go beyond your included allowance, where your organization has overages enabled.
+- **Content to prepare.** Which kinds of work it may prepare: Create Articles, Prepare page rewrites, Improve metadata, Add FAQ or schema, Improve internal links.
+- **Markets.** Which of your workspace markets it may write for.
+
+**Generate now** starts queued work sooner; it still uses your allowance and needs the same approvals.
 
 ## Who can turn it on
 

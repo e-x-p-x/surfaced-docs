@@ -5,6 +5,14 @@ description: "Which domains the AI engines cite in your answers, how often, and 
 
 Sources lists the external links AI engines cited in the tracked answers. It tells you what the models are reading when they answer questions about your market, including which of your competitors' pages are doing the work.
 
+## Watch: which websites ChatGPT cites
+
+A four-minute walkthrough of this screen on a real workspace: every cited site in one list, filtering by platform and source type, the exact pages and answers behind each site, your own cited pages, and what the AI searched for.
+
+<Frame>
+  <iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/8H7wRxQf0r0" title="Which Websites Does ChatGPT Cite? How to Find Them and Get Cited (2026)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+</Frame>
+
 <Frame>
   <img src="/images/sources.webp" alt="The Sources screen with citation share 60.0%, 1,733 citations and 29 unique domains across the top, above a table of cited domains ranked by citation count — the workspace's own domain highlighted in first place, followed by competitor and publisher domains with their type and usage percentage." />
 </Frame>
@@ -23,14 +31,16 @@ Then the table:
 | --- | --- |
 | Domain | The cited domain. Your own domain and its subdomains are highlighted. |
 | Site market | The market the cited site itself belongs to, where that is known. Often `—`. |
-| Type | The kind of source, inferred from the domain: General, News & Media, Reviews / Directories, Organization. |
+| Type | The kind of source, inferred from the domain: Reference, Social / Community, News & Media, Reviews / Directories, Blog / Personal, Government, Academic, Technical / Docs, Video, Organization, Tech / Startup or General. |
 | Citations | How many times it was cited in the period. |
 | Usage % | Its share of all citations in scope. |
 | Prompt language | The languages of the prompts it was cited in. |
 | Citation markets | The markets those prompts were asked from. |
 | AI platforms | The platforms that cited it. |
 
-Clicking a row opens the domain: which URLs were cited, how often, by which platforms, and the answers themselves.
+Clicking a row opens the domain: which URLs were cited, how often, by which platforms, and the answers themselves. Switch between **Table** (one row per cited link) and **Split** (pick a link on the left, see every answer that cited it, with its prompt and platform, on the right).
+
+Above the table, **Your sites** summarises how often your own domains were cited, and the **All sources / Your sites** toggle narrows the table to them.
 
 ## What counts as a citation
 
@@ -40,7 +50,7 @@ The domain is taken from the URL, lowercased, with `www.` removed, so `www.examp
 
 ## Controls
 
-Search, the shared period and filters, a **source type** filter, sorting on the first four columns, and page sizes of 25, 50 or 100.
+Search, the shared period and filters, the branded / unbranded / all control, a **source type** filter, sorting on the first four columns, and page sizes of 25, 50 or 100.
 
 ## Three things the filters do not do
 

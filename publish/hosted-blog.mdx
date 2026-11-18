@@ -7,7 +7,7 @@ The hosted blog is somewhere to publish without waiting on a CMS project. Articl
 
 ## Turning it on
 
-Enable it from workspace settings → **Blog**, with a title. Surfaced provisions a default hostname and the blog is live.
+Enable it from **Workspace settings → Setup → Blog**, with a title. Surfaced provisions a default hostname and the blog is live.
 
 Enabling is idempotent: doing it twice returns the site you already have. It has to be done before any article can be published.
 
@@ -21,7 +21,7 @@ You can serve the blog from a subdomain of your own, `blog.yourcompany.com`, ins
 
 That is worth doing for one reason beyond appearances: a citation only counts toward your [citation rate](/metrics/citation-rate) if the domain is yours. Content on a Surfaced hostname is credited to a Surfaced hostname.
 
-Add the domain under settings → Blog → Domains. You are given exactly two records to create: a CNAME, and a TXT verification record where one is needed. Never an A record. Surfaced then checks in the background, and you can also check on demand, once a minute. Verification gives up after 72 hours, so a typo sits there failing rather than silently retrying forever.
+Add the domain under **Workspace settings → Blog → Domains**. You are given exactly two records to create: a CNAME, and a TXT verification record where one is needed. Never an A record. Surfaced then checks in the background, and you can also check on demand, once a minute. Verification gives up after 72 hours, so a typo sits there failing rather than silently retrying forever.
 
 Up to five domains per workspace.
 
@@ -59,7 +59,7 @@ There is an opt-in auto-publish. It never publishes anything flagged for human r
 
 ## What it does not do
 
-No scheduling or editorial calendar. No per-post meta overrides, no author byline, no `noindex` toggle. The blog's own interface is English regardless of the language you publish in.
+You can schedule a single article to go live at a set date and time (**Schedule…** on the article), but there is no editorial calendar. No per-post meta overrides, no author byline, no `noindex` toggle. The blog's own interface (navigation, buttons and labels) is translated into 13 languages and falls back to English for the rest.
 
 ## When not to use it
 

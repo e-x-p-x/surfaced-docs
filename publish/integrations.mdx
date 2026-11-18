@@ -22,7 +22,7 @@ Block bodies are omitted by default because they make responses large. Ask for t
 
 Rather than polling, register a webhook and be told when something happens: a page published, unpublished, archived, or found to need changes. Register them at `/webhooks` through the API. There is no interface for this, and the deliveries are signed so you can verify they came from us.
 
-Webhooks are the right choice for anything that takes minutes. Generation runs take eight to fifteen minutes per language and audits take several, so polling them wastes your rate limit for no benefit.
+Webhooks are the right choice for anything that takes minutes. Generation runs usually take around 15 minutes (languages are written in parallel) and audits take several, so polling them wastes your rate limit for no benefit.
 
 <Note>
   A publish that happens through an external integration rather than the hosted blog does not raise the published event. If your pipeline depends on that signal, publish through the blog or the API.

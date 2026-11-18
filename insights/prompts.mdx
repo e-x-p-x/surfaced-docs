@@ -5,6 +5,14 @@ description: "Every tracked question, how you performed on each, and how to add,
 
 Prompts lists the questions Surfaced sends to the AI engines on your behalf, with your results for each one. It is the screen that turns "visibility is 47%" into "we lose the pricing question and win the integration question".
 
+## Watch: see every AI answer about your brand
+
+A four-minute walkthrough of this screen on a real workspace: the questions Surfaced asks, adding your own, reading the real answers and seeing who gets named instead.
+
+<Frame>
+  <iframe className="w-full aspect-video rounded-xl" src="https://www.youtube.com/embed/mdj-iL21ruo" title="What Does ChatGPT Say About Your Brand? How to See Every AI Answer (2026)" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+</Frame>
+
 <Frame>
   <img src="/images/prompts.webp" alt="The Prompts table with two questions expanded into their language variants. Each parent row carries a 'Multilingual group' badge and lists its EN, DE, FR, IT, JA and NL children indented beneath it, every row tagged with its topic and marked 'Not classified' for branded or unbranded scope." />
 </Frame>
@@ -27,7 +35,15 @@ One row per prompt **per language**. A question tracked in six languages is six 
 | Executions | How many times the prompt ran in the period. |
 | Last update | When it last ran. |
 
-Clicking a row opens the detail panel with the answers themselves. Reading three or four of them teaches you more about a bad number than any chart.
+Clicking a row opens the detail panel for that prompt. From top to bottom it shows:
+
+- **The five KPIs** for this one question (brand visibility, citation rate, share of voice, average position, sentiment) and their trends.
+- **Brand visibility per AI platform**, so you can see which engine names you and which never does.
+- **Competitor Landscape**: every brand the answers named, ranked, with your own row marked.
+- **What the engines searched**: the search rewrite and the follow-up searches the engines ran before answering, plus People also ask and related searches. These are the keywords worth ranking for; [What the AI searched for](https://www.youtube.com/watch?v=8H7wRxQf0r0&amp;t=170s) shows how to read them.
+- **LLM Responses**: every answer word for word, with your brand highlighted and each answer marked mentioned or not mentioned.
+
+Reading three or four answers teaches you more about a bad number than any chart.
 
 ## Controls
 
@@ -37,11 +53,11 @@ The toolbar also shows your **response budget** rather than a prompt limit: how 
 
 ## Adding prompts
 
-Three ways:
+Three ways, all from the **Add Prompt** button and its menu:
 
-- **Quick add.** One line in the table, defaults applied.
-- **Add prompt.** The full sheet. It always creates a group: the question in your workspace's primary language, plus any language-and-country variants you add, with auto-translation you can edit or re-run.
-- **Suggest.** Surfaced proposes a handful of questions based on your brand and site. Nothing is saved until you accept one.
+- **Quick Add (single line).** One line in the table, defaults applied.
+- **Add Manually.** The full sheet. It always creates a group: the question in your workspace's primary language, plus any language-and-country variants you add, with auto-translation you can edit or re-run.
+- **Suggest a prompt.** Surfaced proposes a handful of questions based on your brand and site. Nothing is saved until you accept one.
 
 If the workspace has no prompts at all, the empty state generates a set for you to choose from. Generated prompts appear in the table **inactive**: nothing is tracked, and nothing costs you a response, until you activate the ones you want.
 
@@ -59,4 +75,4 @@ Select two or more rows and choose **Group as variants** to bind differently-wor
 
 **Untracking is not deleting.** Removing one language of a group keeps the row and its history and moves it to an **Untracked prompts** section with a "Track again" button. That is the safe way to stop paying for a question without losing what it told you.
 
-**Paused is a budget state.** A **Paused prompts** section appears when prompts have stopped running because the workspace reached its monthly response limit. Nothing was deleted, and they resume when the quota resets or the plan changes.
+**The limit stops runs, not prompts.** When the workspace reaches its monthly tracked-response allowance, the whole nightly run is skipped rather than individual prompts being paused. Nothing is deleted, and tracking resumes when the allowance resets at the start of the month or you upgrade. See [Billing and usage](/account/billing-and-usage).
